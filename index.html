@@ -7,7 +7,7 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      font-family: "Noto Serif SC", "楷体", "KaiTi", serif;
+      font-family: "Noto Serif SC", "SimSun", "宋体", "KaiTi", serif;
       background: #f5f0e8;
       color: #4a3b2f;
       max-width: 700px;
@@ -21,6 +21,109 @@
       letter-spacing: 4px;
       color: #8b5a2b;
     }
+    /* Tabs */
+    .tabs {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #c9a96e;
+    }
+    .tab-btn {
+      padding: 10px 20px;
+      border: none;
+      background: transparent;
+      font-family: inherit;
+      font-size: 1.1rem;
+      color: #8b7355;
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      transition: all 0.2s;
+    }
+    .tab-btn:hover { color: #6b4c2a; }
+    .tab-btn.active {
+      color: #6b4c2a;
+      border-bottom-color: #c9a96e;
+      font-weight: bold;
+    }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* Search form */
+    .search-form {
+      background: #fff9f0;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      margin-bottom: 20px;
+    }
+    .search-form h2 {
+      text-align: center;
+      font-size: 1.3rem;
+      color: #6b4c2a;
+      margin-bottom: 16px;
+    }
+    .form-row {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .form-row label {
+      font-size: 0.95rem;
+      color: #6b4c2a;
+      min-width: 60px;
+    }
+    .form-row input[type="text"] {
+      width: 60px;
+      padding: 8px 10px;
+      border: 1px solid #c9a96e;
+      border-radius: 6px;
+      font-size: 1.1rem;
+      font-family: inherit;
+      background: #fff;
+      text-align: center;
+    }
+    .form-row select {
+      padding: 8px 10px;
+      border: 1px solid #c9a96e;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-family: inherit;
+      background: #fff;
+      cursor: pointer;
+    }
+    .btn-search {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      background: #8b5a2b;
+      color: #fff;
+      font-size: 1.1rem;
+      font-family: inherit;
+      cursor: pointer;
+      transition: background 0.2s;
+      margin-top: 10px;
+    }
+    .btn-search:hover { background: #6b4c2a; }
+    .btn-search:disabled { background: #a09080; cursor: not-allowed; }
+
+    /* Position slider */
+    .pos-display {
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #8b5a2b;
+      min-width: 30px;
+      text-align: center;
+    }
+    input[type="range"] {
+      flex: 1;
+      min-width: 150px;
+    }
+
+    /* Poem cards */
     .poem-card {
       background: #fff9f0;
       border-left: 5px solid #c9a96e;
@@ -51,6 +154,10 @@
       line-height: 1.7;
       font-size: 1.05rem;
     }
+    .poem-text .highlight {
+      color: #c0392b;
+      font-weight: bold;
+    }
     .tip {
       text-align: center;
       margin-top: 20px;
@@ -70,19 +177,81 @@
       opacity: 0;
       transition: opacity 0.3s ease;
       pointer-events: none;
+      z-index: 999;
     }
     .toast.show { opacity: 1; }
+
+    /* Loading & results */
+    .loading {
+      text-align: center;
+      padding: 20px;
+      color: #8b7355;
+    }
+    .result-count {
+      text-align: center;
+      color: #8b7355;
+      font-size: 0.9rem;
+      margin-bottom: 16px;
+    }
+    .no-result {
+      text-align: center;
+      padding: 30px;
+      color: #aa8e6f;
+      font-size: 1.1rem;
+    }
+    .status-msg {
+      text-align: center;
+      padding: 10px;
+      color: #8b7355;
+      font-size: 0.95rem;
+    }
   </style>
 </head>
 <body>
-  <h1>📜 诗词小馆</h1>
+  <h1>诗词小馆</h1>
 
-  <div id="poem-list"></div>
-  <p class="tip">👇 点一下任意诗词卡片，即可复制全文</p>
+  <div class="tabs">
+    <button class="tab-btn active" data-tab="collection">诗词收藏</button>
+    <button class="tab-btn" data-tab="search">飞花令</button>
+  </div>
+
+  <!-- Tab: Collection -->
+  <div class="tab-panel active" id="tab-collection">
+    <div id="poem-list"></div>
+    <p class="tip">👇 点一下任意诗词卡片，即可复制全文</p>
+  </div>
+
+  <!-- Tab: Search -->
+  <div class="tab-panel" id="tab-search">
+    <div class="search-form">
+      <h2>飞花令 · 诗词查询</h2>
+      <div class="form-row">
+        <label>搜索字</label>
+        <input type="text" id="search-char" maxlength="1" placeholder="字">
+        <label style="margin-left: 12px">体裁</label>
+        <select id="search-type">
+          <option value="five">五言</option>
+          <option value="seven">七言</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <label>第</label>
+        <input type="range" id="pos-slider" min="1" max="10" value="1">
+        <span class="pos-display" id="pos-display">1</span>
+        <label>个字</label>
+      </div>
+      <button class="btn-search" id="btn-search">查询</button>
+    </div>
+
+    <div id="search-results">
+      <div class="status-msg">输入条件后点击查询，检索唐诗宋词库</div>
+    </div>
+  </div>
+
   <div class="toast" id="toast">✅ 已复制到剪贴板</div>
 
   <script>
-    // ========== 诗词数据（可以自由增删改） ==========
+    // ========== 诗词收藏 ==========
     const poems = [
       { title: "静夜思", author: "李白", text: "床前明月光，\n疑是地上霜。\n举头望明月，\n低头思故乡。" },
       { title: "登鹳雀楼", author: "王之涣", text: "白日依山尽，\n黄河入海流。\n欲穷千里目，\n更上一层楼。" },
@@ -119,7 +288,6 @@
     const listEl = document.getElementById("poem-list");
     const toast = document.getElementById("toast");
 
-    // 渲染诗词列表
     poems.forEach((poem, index) => {
       const card = document.createElement("div");
       card.className = "poem-card";
@@ -132,14 +300,12 @@
       listEl.appendChild(card);
     });
 
-    // 复制并显示提示
     function copyPoem(poem) {
       const fullText = `《${poem.title}》 ${poem.author}\n${poem.text}`;
       navigator.clipboard.writeText(fullText).then(() => {
         toast.classList.add("show");
         setTimeout(() => toast.classList.remove("show"), 2000);
-      }).catch(err => {
-        // 降级方法（旧浏览器）
+      }).catch(() => {
         const textarea = document.createElement("textarea");
         textarea.value = fullText;
         document.body.appendChild(textarea);
@@ -150,6 +316,153 @@
         setTimeout(() => toast.classList.remove("show"), 2000);
       });
     }
+
+    // ========== Tab switching ==========
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+      });
+    });
+
+    // ========== 飞花令搜索 ==========
+    const searchChar = document.getElementById('search-char');
+    const searchType = document.getElementById('search-type');
+    const posSlider = document.getElementById('pos-slider');
+    const posDisplay = document.getElementById('pos-display');
+    const btnSearch = document.getElementById('btn-search');
+    const searchResults = document.getElementById('search-results');
+
+    let couplets = [];
+    function updateSliderMax() {
+      const type = searchType.value;
+      posSlider.max = type === 'five' ? 10 : 14;
+      if (parseInt(posSlider.value) > parseInt(posSlider.max)) {
+        posSlider.value = posSlider.max;
+      }
+      posDisplay.textContent = posSlider.value;
+    }
+    searchType.addEventListener('change', updateSliderMax);
+    posSlider.addEventListener('input', () => {
+      posDisplay.textContent = posSlider.value;
+    });
+
+    // Fetch and cache poetry data (compact format: {titles, authors, couplets})
+    let titles = [];
+    let authors = [];
+    let couplets = [];
+
+    async function loadData() {
+      if (couplets.length > 0) return;
+      searchResults.innerHTML = '<div class="loading">正在加载诗词数据，请稍候...</div>';
+      btnSearch.disabled = true;
+      try {
+        const resp = await fetch('poetry-data.json');
+        const data = await resp.json();
+        titles = data.titles;
+        authors = data.authors;
+        couplets = data.couplets; // each: [upper, lower, titleIdx, authorIdx]
+        btnSearch.disabled = false;
+        searchResults.innerHTML = '<div class="status-msg">诗词数据已加载 (' + couplets.length + ' 条)，输入条件后点击查询</div>';
+      } catch (e) {
+        btnSearch.disabled = false;
+        searchResults.innerHTML = '<div class="no-result">数据加载失败，请刷新页面重试</div>';
+      }
+    }
+
+    // Search function
+    function doSearch() {
+      const char = searchChar.value.trim();
+      if (!char || char.length !== 1) {
+        searchResults.innerHTML = '<div class="no-result">请输入一个汉字</div>';
+        return;
+      }
+      if (couplets.length === 0) {
+        searchResults.innerHTML = '<div class="no-result">请先等待数据加载完成</div>';
+        return;
+      }
+
+      const type = searchType.value;
+      const pos = parseInt(posSlider.value);
+      const charLen = type === 'five' ? 5 : 7;
+
+      // Filter: combined upper+lower must be charLen*2 chars, find matching position
+      const results = [];
+      for (const c of couplets) {
+        const combined = c[0] + c[1];
+        if (combined.length !== charLen * 2) continue;
+        if (combined[pos - 1] === char) {
+          results.push(c);
+        }
+      }
+
+      if (results.length === 0) {
+        searchResults.innerHTML = '<div class="no-result">未找到符合条件的诗句</div>';
+        return;
+      }
+
+      // Show count + results
+      let html = '<div class="result-count">找到 ' + results.length + ' 条符合条件的诗句</div>';
+
+      for (const r of results) {
+        const uHtml = highlightAt(r[0], pos, charLen);
+        const lHtml = highlightAt(r[1], pos, charLen);
+        const title = titles[r[2]];
+        const author = authors[r[3]];
+
+        const escTitle = JSON.stringify(title);
+        const escAuthor = JSON.stringify(author);
+        html += `<div class="poem-card" onclick="copyCouplet(this, ${escTitle}, ${escAuthor})">
+          <div class="poem-title">${title}</div>
+          <div class="poem-author">—— ${author}</div>
+          <div class="poem-text">${uHtml}，${lHtml}。</div>
+        </div>`;
+      }
+
+      searchResults.innerHTML = html;
+    }
+
+    function highlightAt(text, pos, charLen) {
+      // pos is 1-indexed relative to combined (upper+lower)
+      // For upper half: pos 1..charLen -> index in upper
+      if (pos >= 1 && pos <= charLen) {
+        const idx = pos - 1;
+        return text.substring(0, idx) + '<span class="highlight">' + text[idx] + '</span>' + text.substring(idx + 1);
+      } else {
+        // In lower half
+        const idx = pos - charLen - 1;
+        if (idx >= 0 && idx < text.length) {
+          return text.substring(0, idx) + '<span class="highlight">' + text[idx] + '</span>' + text.substring(idx + 1);
+        }
+        return text;
+      }
+    }
+
+    function copyCouplet(el, title, author) {
+      const text = el.querySelector('.poem-text').textContent;
+      navigator.clipboard.writeText(`《${title}》 ${author}\n${text}`).then(() => {
+        toast.classList.add("show");
+        setTimeout(() => toast.classList.remove("show"), 2000);
+      });
+    }
+
+    btnSearch.addEventListener('click', doSearch);
+    searchChar.addEventListener('keypress', e => {
+      if (e.key === 'Enter') doSearch();
+    });
+
+    // Preload data when search tab is first opened
+    let dataLoading = false;
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        if (btn.dataset.tab === 'search' && !dataLoading) {
+          dataLoading = true;
+          loadData();
+        }
+      });
+    });
   </script>
 </body>
 </html>
