@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>诗词小馆</title>
+  <title>飞花令</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -17,12 +17,11 @@
     h1 {
       text-align: center;
       font-size: 2.2rem;
-      margin-bottom: 30px;
+      margin-bottom: 24px;
       letter-spacing: 4px;
       color: #8b5a2b;
     }
 
-    /* Search form */
     .search-form {
       background: #fff9f0;
       padding: 24px;
@@ -34,39 +33,120 @@
       text-align: center;
       font-size: 1.3rem;
       color: #6b4c2a;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
     }
-    .form-row {
+
+    /* Data source selector */
+    .source-row {
       display: flex;
-      gap: 10px;
-      margin-bottom: 14px;
-      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 16px;
       align-items: center;
+      justify-content: center;
     }
-    .form-row label {
-      font-size: 1rem;
+    .source-row label {
+      font-size: 0.95rem;
       color: #6b4c2a;
       white-space: nowrap;
     }
-    .form-row input[type="text"] {
-      width: 60px;
-      padding: 10px 10px;
+    .source-row select {
+      padding: 8px 12px;
       border: 1px solid #c9a96e;
       border-radius: 6px;
-      font-size: 1.2rem;
-      font-family: inherit;
-      background: #fff;
-      text-align: center;
-    }
-    .form-row select {
-      padding: 10px 10px;
-      border: 1px solid #c9a96e;
-      border-radius: 6px;
-      font-size: 1rem;
+      font-size: 0.95rem;
       font-family: inherit;
       background: #fff;
       cursor: pointer;
     }
+
+    /* Condition rows */
+    .conditions { margin-bottom: 10px; }
+    .cond-row {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+    .cond-row label {
+      font-size: 0.95rem;
+      color: #6b4c2a;
+      white-space: nowrap;
+    }
+    .cond-row input[type="text"] {
+      width: 50px;
+      padding: 8px;
+      border: 1px solid #c9a96e;
+      border-radius: 6px;
+      font-size: 1.1rem;
+      font-family: inherit;
+      background: #fff;
+      text-align: center;
+    }
+    .cond-row select {
+      padding: 8px 8px;
+      border: 1px solid #c9a96e;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      font-family: inherit;
+      background: #fff;
+      cursor: pointer;
+    }
+    .cond-row input[type="range"] {
+      width: 100px;
+      accent-color: #8b5a2b;
+    }
+    .cond-row .pos-display {
+      font-size: 0.95rem;
+      font-weight: bold;
+      color: #8b5a2b;
+      min-width: 24px;
+      text-align: center;
+    }
+    .btn-remove {
+      width: 28px;
+      height: 28px;
+      border: none;
+      border-radius: 50%;
+      background: #c0392b;
+      color: #fff;
+      font-size: 1.1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+    }
+    .btn-remove:hover { background: #a93226; }
+
+    .add-row {
+      display: flex;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    .btn-add {
+      width: 32px;
+      height: 32px;
+      border: 2px dashed #c9a96e;
+      border-radius: 50%;
+      background: transparent;
+      color: #8b5a2b;
+      font-size: 1.3rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+    }
+    .btn-add:hover {
+      background: #c9a96e;
+      color: #fff;
+    }
+    .btn-add:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
     .btn-search {
       display: block;
       width: 100%;
@@ -79,24 +159,9 @@
       font-family: inherit;
       cursor: pointer;
       transition: background 0.2s;
-      margin-top: 10px;
     }
     .btn-search:hover { background: #6b4c2a; }
     .btn-search:disabled { background: #a09080; cursor: not-allowed; }
-
-    /* Slider */
-    .pos-display {
-      font-size: 1.1rem;
-      font-weight: bold;
-      color: #8b5a2b;
-      min-width: 30px;
-      text-align: center;
-    }
-    input[type="range"] {
-      flex: 1;
-      min-width: 150px;
-      accent-color: #8b5a2b;
-    }
 
     /* Results */
     .result-card {
@@ -131,6 +196,14 @@
     .result-text .highlight {
       color: #c0392b;
       font-weight: bold;
+      background: #ffeaea;
+      border-radius: 2px;
+      padding: 0 2px;
+    }
+    .result-heat {
+      font-size: 0.8rem;
+      color: #c9a96e;
+      margin-left: 8px;
     }
 
     .loading { text-align: center; padding: 20px; color: #8b7355; }
@@ -161,21 +234,36 @@
 
   <div class="search-form">
     <h2>诗词查询</h2>
-    <div class="form-row">
-      <label>搜索字</label>
-      <input type="text" id="search-char" maxlength="1" placeholder="字">
-      <label style="margin-left:16px">体裁</label>
-      <select id="search-type">
-        <option value="five">五言</option>
-        <option value="seven">七言</option>
+
+    <div class="source-row">
+      <label>数据来源</label>
+      <select id="data-source">
+        <option value="lite">简化数据库（推荐）</option>
+        <option value="full">完整数据库</option>
       </select>
     </div>
-    <div class="form-row">
-      <label>第</label>
-      <input type="range" id="pos-slider" min="1" max="10" value="1">
-      <span class="pos-display" id="pos-display">1</span>
-      <label>个字</label>
+
+    <div class="conditions" id="conditions">
+      <div class="cond-row" data-idx="0">
+        <label>字</label>
+        <input type="text" class="search-char" maxlength="1" placeholder="字">
+        <label>体裁</label>
+        <select class="search-type">
+          <option value="five">五言</option>
+          <option value="seven">七言</option>
+        </select>
+        <label>第</label>
+        <input type="range" class="pos-slider" min="1" max="10" value="1">
+        <span class="pos-display">1</span>
+        <label>个字</label>
+        <button class="btn-remove" title="删除">×</button>
+      </div>
     </div>
+
+    <div class="add-row">
+      <button class="btn-add" id="btn-add" title="添加条件">+</button>
+    </div>
+
     <button class="btn-search" id="btn-search">查询</button>
   </div>
 
@@ -186,67 +274,175 @@
   <div class="toast" id="toast">已复制到剪贴板</div>
 
   <script>
-    const searchChar = document.getElementById('search-char');
-    const searchType = document.getElementById('search-type');
-    const posSlider = document.getElementById('pos-slider');
-    const posDisplay = document.getElementById('pos-display');
+    const conditionsEl = document.getElementById('conditions');
+    const btnAdd = document.getElementById('btn-add');
     const btnSearch = document.getElementById('btn-search');
     const searchResults = document.getElementById('search-results');
     const statusMsg = document.getElementById('status-msg');
     const toast = document.getElementById('toast');
+    const dataSource = document.getElementById('data-source');
 
     let titles = [];
     let authors = [];
     let couplets = [];
+    let currentSource = 'lite';
 
-    // Update slider max when type changes
-    searchType.addEventListener('change', () => {
-      posSlider.max = searchType.value === 'five' ? 10 : 14;
-      if (parseInt(posSlider.value) > parseInt(posSlider.max)) {
-        posSlider.value = posSlider.max;
+    const MAX_CONDITIONS = 5;
+
+    // ========== Condition row management ==========
+
+    function updateSliderMax(slider) {
+      const row = slider.closest('.cond-row');
+      const type = row.querySelector('.search-type').value;
+      slider.max = type === 'five' ? 10 : 14;
+      if (parseInt(slider.value) > parseInt(slider.max)) {
+        slider.value = slider.max;
       }
-      posDisplay.textContent = posSlider.value;
-    });
-    posSlider.addEventListener('input', () => {
-      posDisplay.textContent = posSlider.value;
-    });
+      row.querySelector('.pos-display').textContent = slider.value;
+    }
 
-    // Load data on page load
-    (async function loadData() {
+    function addConditionRow() {
+      const rows = conditionsEl.querySelectorAll('.cond-row');
+      if (rows.length >= MAX_CONDITIONS) return;
+
+      const idx = rows.length;
+      const row = document.createElement('div');
+      row.className = 'cond-row';
+      row.dataset.idx = idx;
+      row.innerHTML =
+        '<label>字</label>' +
+        '<input type="text" class="search-char" maxlength="1" placeholder="字">' +
+        '<label>体裁</label>' +
+        '<select class="search-type">' +
+          '<option value="five">五言</option>' +
+          '<option value="seven">七言</option>' +
+        '</select>' +
+        '<label>第</label>' +
+        '<input type="range" class="pos-slider" min="1" max="10" value="1">' +
+        '<span class="pos-display">1</span>' +
+        '<label>个字</label>' +
+        '<button class="btn-remove" title="删除">×</button>';
+
+      // Bind events
+      row.querySelector('.search-type').addEventListener('change', function() {
+        updateSliderMax(row.querySelector('.pos-slider'));
+      });
+      row.querySelector('.pos-slider').addEventListener('input', function() {
+        row.querySelector('.pos-display').textContent = this.value;
+      });
+      row.querySelector('.btn-remove').addEventListener('click', function() {
+        row.remove();
+        btnAdd.disabled = false;
+      });
+      row.querySelector('.search-char').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') doSearch();
+      });
+
+      conditionsEl.appendChild(row);
+      row.querySelector('.search-char').focus();
+
+      const newCount = conditionsEl.querySelectorAll('.cond-row').length;
+      if (newCount >= MAX_CONDITIONS) {
+        btnAdd.disabled = true;
+      }
+    }
+
+    // Initial row events
+    (function initFirstRow() {
+      const row = conditionsEl.querySelector('.cond-row');
+      row.querySelector('.search-type').addEventListener('change', function() {
+        updateSliderMax(row.querySelector('.pos-slider'));
+      });
+      row.querySelector('.pos-slider').addEventListener('input', function() {
+        row.querySelector('.pos-display').textContent = this.value;
+      });
+      row.querySelector('.btn-remove').addEventListener('click', function() {
+        row.remove();
+        btnAdd.disabled = false;
+        // If no rows left, add one
+        if (conditionsEl.querySelectorAll('.cond-row').length === 0) {
+          addConditionRow();
+        }
+      });
+      row.querySelector('.search-char').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') doSearch();
+      });
+    })();
+
+    btnAdd.addEventListener('click', addConditionRow);
+
+    // ========== Data loading ==========
+
+    async function loadData() {
+      const source = dataSource.value;
+      if (source === currentSource && couplets.length > 0) return;
+
+      currentSource = source;
+      titles = [];
+      authors = [];
+      couplets = [];
+
+      const url = source === 'lite' ? 'poetry-data-lite.json' : 'poetry-data.json';
+      searchResults.innerHTML = '<div class="loading">正在加载诗词数据（' + (source === 'lite' ? '简化版' : '完整版') + '），请稍候...</div>';
+      btnSearch.disabled = true;
+
       try {
-        const resp = await fetch('poetry-data.json');
+        const resp = await fetch(url);
         const data = await resp.json();
         titles = data.titles;
         authors = data.authors;
         couplets = data.couplets;
+        btnSearch.disabled = false;
         statusMsg.textContent = '诗词数据已加载 (' + couplets.length + ' 条)，输入条件后点击查询';
+        searchResults.innerHTML = '<div class="status-msg" id="status-msg">' + statusMsg.textContent + '</div>';
       } catch (e) {
-        statusMsg.textContent = '数据加载失败，请刷新页面重试';
+        btnSearch.disabled = false;
+        searchResults.innerHTML = '<div class="no-result">数据加载失败，请刷新页面重试</div>';
       }
-    })();
+    }
+
+    dataSource.addEventListener('change', loadData);
+    // Initial load
+    loadData();
+
+    // ========== Search ==========
 
     function doSearch() {
-      const char = searchChar.value.trim();
-      if (!char) {
-        searchResults.innerHTML = '<div class="no-result">请输入一个汉字</div>';
+      const rows = conditionsEl.querySelectorAll('.cond-row');
+      const conditions = [];
+      for (const row of rows) {
+        const char = row.querySelector('.search-char').value.trim();
+        if (!char) continue;
+        const type = row.querySelector('.search-type').value;
+        const pos = parseInt(row.querySelector('.pos-slider').value);
+        const charLen = type === 'five' ? 5 : 7;
+        conditions.push({ char, type, pos, charLen });
+      }
+
+      if (conditions.length === 0) {
+        searchResults.innerHTML = '<div class="no-result">请至少输入一个搜索字</div>';
         return;
       }
       if (couplets.length === 0) {
-        searchResults.innerHTML = '<div class="no-result">数据尚未加载，请刷新页面</div>';
+        searchResults.innerHTML = '<div class="no-result">数据尚未加载，请稍候</div>';
         return;
       }
 
-      const pos = parseInt(posSlider.value);
-      const charLen = searchType.value === 'five' ? 5 : 7;
-
+      // AND search: all conditions must match
       const results = [];
       for (const c of couplets) {
-        const combined = c[0] + c[1];
-        if (combined.length !== charLen * 2) continue;
-        if (combined[pos - 1] === char) {
-          results.push(c);
+        let match = true;
+        for (const cond of conditions) {
+          const combined = c[0] + c[1];
+          // Check type compatibility
+          if (combined.length !== cond.charLen * 2) { match = false; break; }
+          if (combined[cond.pos - 1] !== cond.char) { match = false; break; }
         }
+        if (match) results.push(c);
       }
+
+      // Sort by heat descending
+      results.sort((a, b) => b[4] - a[4]);
 
       if (results.length === 0) {
         searchResults.innerHTML = '<div class="no-result">未找到符合条件的诗句</div>';
@@ -254,35 +450,54 @@
       }
 
       let html = '<div class="result-count">找到 ' + results.length + ' 条符合条件的诗句</div>';
-      for (const r of results) {
+
+      // Limit display to first 500 for performance
+      const displayResults = results.slice(0, 500);
+      if (results.length > 500) {
+        html += '<div class="status-msg">仅显示前 500 条结果</div>';
+      }
+
+      for (const r of displayResults) {
+        const heat = r[4];
+        // Build highlight for each condition
+        const highlightMap = {}; // index in combined -> char
+        for (const cond of conditions) {
+          highlightMap[cond.pos - 1] = cond.char;
+        }
+
+        // Highlight upper half
+        const uHtml = highlightHalf(r[0], 0, highlightMap, conditions[0].charLen);
+        // Highlight lower half
+        const offset = conditions[0].charLen; // all conditions in this result have same charLen
+        const lHtml = highlightHalf(r[1], offset, highlightMap, conditions[0].charLen);
+
         const title = titles[r[2]];
         const author = authors[r[3]];
-        const uHtml = highlightHalf(r[0], pos, charLen, true);
-        const lHtml = highlightHalf(r[1], pos, charLen, false);
-        html += '<div class="result-card" onclick="copyResult(this,' + JSON.stringify(title) + ',' + JSON.stringify(author) + ')">' +
-          '<div class="result-title">' + title + '</div>' +
+
+        html += '<div class="result-card" onclick="copyResult(this,' +
+          JSON.stringify(title) + ',' + JSON.stringify(author) + ')">' +
+          '<div class="result-title">' + title +
+          '<span class="result-heat">热度 ' + heat + '</span></div>' +
           '<div class="result-author">—— ' + author + '</div>' +
           '<div class="result-text">' + uHtml + '，' + lHtml + '。</div>' +
           '</div>';
       }
+
       searchResults.innerHTML = html;
     }
 
-    function highlightHalf(text, pos, charLen, isUpper) {
-      if (isUpper) {
-        // pos 1..charLen means highlight is in this half
-        if (pos >= 1 && pos <= charLen) {
-          const idx = pos - 1;
-          return text.substring(0, idx) + '<span class="highlight">' + text[idx] + '</span>' + text.substring(idx + 1);
-        }
-      } else {
-        // pos charLen+1..charLen*2 means highlight is in this half
-        if (pos > charLen && pos <= charLen * 2) {
-          const idx = pos - charLen - 1;
-          return text.substring(0, idx) + '<span class="highlight">' + text[idx] + '</span>' + text.substring(idx + 1);
+    function highlightHalf(text, offset, highlightMap, charLen) {
+      // offset: starting position in combined string for this half
+      let html = '';
+      for (let i = 0; i < text.length; i++) {
+        const globalIdx = offset + i;
+        if (highlightMap[globalIdx]) {
+          html += '<span class="highlight">' + text[i] + '</span>';
+        } else {
+          html += text[i];
         }
       }
-      return text;
+      return html;
     }
 
     function copyResult(el, title, author) {
@@ -294,9 +509,6 @@
     }
 
     btnSearch.addEventListener('click', doSearch);
-    searchChar.addEventListener('keypress', function(e) {
-      if (e.key === 'Enter') doSearch();
-    });
   </script>
 </body>
 </html>
