@@ -89,8 +89,17 @@
       text-align: center;
     }
     .cond-row input[type="range"] {
-      width: 100px;
+      width: 300px;
       accent-color: #8b5a2b;
+    }
+    .cond-row .pos-label {
+      font-size: 0.95rem;
+      color: #8b5a2b;
+      transition: opacity 0.2s;
+    }
+    .cond-row .pos-label.hidden {
+      opacity: 0;
+      pointer-events: none;
     }
     .cond-row .pos-display {
       font-size: 0.95rem;
@@ -253,10 +262,8 @@
       <div class="cond-row" data-idx="0">
         <label>字</label>
         <input type="text" class="search-char" maxlength="1" placeholder="字">
-        <label>第</label>
-        <input type="range" class="pos-slider" min="1" max="10" value="1">
-        <span class="pos-display">1</span>
-        <label>个字</label>
+        <input type="range" class="pos-slider" min="0" max="10" value="0">
+        <span class="pos-display">包含该字</span>
         <button class="btn-remove" title="删除">×</button>
       </div>
     </div>
@@ -295,12 +302,22 @@
       return globalType.value === 'five' ? 10 : 14;
     }
 
+    function updateSliderLabel(row, value) {
+      const posDisplay = row.querySelector('.pos-display');
+      if (parseInt(value) === 0) {
+        posDisplay.textContent = '包含该字';
+      } else {
+        posDisplay.textContent = '第 ' + value + ' 个字';
+      }
+    }
+
     function updateAllSliders() {
       const max = getSliderMax();
-      conditionsEl.querySelectorAll('.pos-slider').forEach(slider => {
+      conditionsEl.querySelectorAll('.cond-row').forEach(row => {
+        const slider = row.querySelector('.pos-slider');
         slider.max = max;
         if (parseInt(slider.value) > max) slider.value = max;
-        slider.closest('.cond-row').querySelector('.pos-display').textContent = slider.value;
+        updateSliderLabel(row, slider.value);
       });
     }
 
@@ -315,14 +332,12 @@
       row.innerHTML =
         '<label>字</label>' +
         '<input type="text" class="search-char" maxlength="1" placeholder="字">' +
-        '<label>第</label>' +
-        '<input type="range" class="pos-slider" min="1" max="' + getSliderMax() + '" value="1">' +
-        '<span class="pos-display">1</span>' +
-        '<label>个字</label>' +
+        '<input type="range" class="pos-slider" min="0" max="' + getSliderMax() + '" value="0">' +
+        '<span class="pos-display">包含该字</span>' +
         '<button class="btn-remove" title="删除">×</button>';
 
       row.querySelector('.pos-slider').addEventListener('input', function() {
-        row.querySelector('.pos-display').textContent = this.value;
+        updateSliderLabel(row, this.value);
       });
       row.querySelector('.btn-remove').addEventListener('click', function() {
         row.remove();
@@ -344,7 +359,7 @@
     (function() {
       const row = conditionsEl.querySelector('.cond-row');
       row.querySelector('.pos-slider').addEventListener('input', function() {
-        row.querySelector('.pos-display').textContent = this.value;
+        updateSliderLabel(row, this.value);
       });
       row.querySelector('.btn-remove').addEventListener('click', function() {
         row.remove();
@@ -419,7 +434,13 @@
         if (combined.length !== charLen * 2) continue;
         let match = true;
         for (const cond of conditions) {
-          if (combined[cond.pos - 1] !== cond.char) { match = false; break; }
+          if (cond.pos === 0) {
+            // Containment mode: char must exist anywhere
+            if (combined.indexOf(cond.char) === -1) { match = false; break; }
+          } else {
+            // Position mode: char must be at exact position
+            if (combined[cond.pos - 1] !== cond.char) { match = false; break; }
+          }
         }
         if (match) results.push(c);
       }
@@ -438,7 +459,17 @@
 
       for (const r of displayResults) {
         const highlightMap = {};
-        for (const cond of conditions) highlightMap[cond.pos - 1] = cond.char;
+        for (const cond of conditions) {
+          if (cond.pos === 0) {
+            // Containment: find all positions of this char
+            const combined = r[0] + r[1];
+            for (let i = 0; i < combined.length; i++) {
+              if (combined[i] === cond.char) highlightMap[i] = cond.char;
+            }
+          } else {
+            highlightMap[cond.pos - 1] = cond.char;
+          }
+        }
 
         const uHtml = highlightHalf(r[0], 0, highlightMap, charLen);
         const lHtml = highlightHalf(r[1], charLen, highlightMap, charLen);
