@@ -315,6 +315,13 @@
       box-shadow: 0 3px 8px rgba(0,0,0,0.08);
       transform: translateY(-1px);
     }
+    .mini-card.featured {
+      background: #e8f4fd;
+      border-left-color: #5b9bd5;
+    }
+    .mini-card.featured:hover {
+      background: #d6eaf8;
+    }
     .mini-title {
       font-size: 0.85rem;
       color: #8b7355;
@@ -390,11 +397,9 @@
     </div>
     <div class="popular-columns">
       <div class="popular-col">
-        <h3>五言</h3>
         <div id="popular-five"></div>
       </div>
       <div class="popular-col">
-        <h3>七言</h3>
         <div id="popular-seven"></div>
       </div>
     </div>
@@ -684,11 +689,32 @@
       return picked.map(idx => pool[idx]);
     }
 
+    // Featured poems — always displayed at top
+    const featuredFive = [
+      { upper: '青山横北郭', lower: '白水绕东城', title: '送友人', author: '李白' },
+      { upper: '绿蚁新醅酒', lower: '红泥小火炉', title: '问刘十九', author: '白居易' },
+      { upper: '月下飞天镜', lower: '云生结海楼', title: '渡荆门送别', author: '李白' },
+      { upper: '迟日江山丽', lower: '春风花草香', title: '绝句', author: '杜甫' },
+    ];
+    const featuredSeven = [
+      { upper: '春江花朝秋月夜', lower: '往往取酒还独倾', title: '琵琶行', author: '白居易' },
+      { upper: '北风卷地白草折', lower: '胡天八月即飞雪', title: '白雪歌送武判官归京', author: '岑参' },
+      { upper: '黄鹤一去不复返', lower: '白云千载空悠悠', title: '黄鹤楼', author: '崔颢' },
+      { upper: '此夜曲中闻折柳', lower: '何人不起故园情', title: '春夜洛城闻笛', author: '李白' },
+    ];
+
     function renderPopular() {
       const fiveItems = pickRandom(popularFivePool, popularFiveShown, 20);
       const sevenItems = pickRandom(popularSevenPool, popularSevenShown, 20);
 
       let fiveHtml = '';
+      // Featured 5-char poems (always on top)
+      for (const f of featuredFive) {
+        fiveHtml += '<div class="mini-card featured" onclick="copyPlain(this)">' +
+          '<div class="mini-text">' + f.upper + '，' + f.lower + '。</div>' +
+          '<div class="mini-title">—— ' + f.author + '《' + f.title + '》</div>' +
+          '</div>';
+      }
       for (const item of fiveItems) {
         fiveHtml += '<div class="mini-card" onclick="copyPlain(this)">' +
           '<div class="mini-text">' + item.upper + '，' + item.lower + '。</div>' +
@@ -698,6 +724,13 @@
       }
 
       let sevenHtml = '';
+      // Featured 7-char poems (always on top)
+      for (const f of featuredSeven) {
+        sevenHtml += '<div class="mini-card featured" onclick="copyPlain(this)">' +
+          '<div class="mini-text">' + f.upper + '，' + f.lower + '。</div>' +
+          '<div class="mini-title">—— ' + f.author + '《' + f.title + '》</div>' +
+          '</div>';
+      }
       for (const item of sevenItems) {
         sevenHtml += '<div class="mini-card" onclick="copyPlain(this)">' +
           '<div class="mini-text">' + item.upper + '，' + item.lower + '。</div>' +
