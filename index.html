@@ -615,8 +615,7 @@
         const title = titles[r[2]];
         const author = authors[r[3]];
 
-        html += '<div class="result-card" onclick="copyResult(this,' +
-          JSON.stringify(title) + ',' + JSON.stringify(author) + ')">' +
+        html += '<div class="result-card" data-copy>' +
           '<div class="result-title">' + title +
           '<span class="result-heat">热度 ' + r[4] + '</span></div>' +
           '<div class="result-author">—— ' + author + '</div>' +
@@ -639,13 +638,21 @@
       return html;
     }
 
-    function copyResult(el, title, author) {
-      const text = el.querySelector('.result-text').textContent;
+    function copyToClipboard(text) {
       navigator.clipboard.writeText(text).then(function() {
         toast.classList.add('show');
         setTimeout(function() { toast.classList.remove('show'); }, 2000);
       });
     }
+
+    // Event delegation for result card copy
+    searchResults.addEventListener('click', function(e) {
+      const card = e.target.closest('.result-card');
+      if (card) {
+        const text = card.querySelector('.result-text').textContent;
+        copyToClipboard(text);
+      }
+    });
 
     btnSearch.addEventListener('click', doSearch);
 
