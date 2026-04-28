@@ -109,7 +109,7 @@
       white-space: nowrap;
     }
     .cond-row input[type="text"] {
-      width: 50px;
+      width: 80px;
       padding: 8px;
       border: 1px solid #c9a96e;
       border-radius: 6px;
@@ -371,7 +371,7 @@
     <div class="conditions" id="conditions">
       <div class="cond-row" data-idx="0">
         <label>字</label>
-        <input type="text" class="search-char" maxlength="1" placeholder="字">
+        <input type="text" class="search-char" placeholder="字">
         <input type="range" class="pos-slider" min="0" max="10" value="0">
         <span class="pos-display">包含该字</span>
         <button class="btn-remove" title="删除">×</button>
@@ -573,12 +573,13 @@
         if (combined.length !== charLen * 2) continue;
         let match = true;
         for (const cond of conditions) {
+          const clen = cond.char.length;
           if (cond.pos === 0) {
-            // Containment mode: char must exist anywhere
+            // Containment mode: substring must exist anywhere
             if (combined.indexOf(cond.char) === -1) { match = false; break; }
           } else {
-            // Position mode: char must be at exact position
-            if (combined[cond.pos - 1] !== cond.char) { match = false; break; }
+            // Position mode: substring must start at exact position
+            if (combined.substring(cond.pos - 1, cond.pos - 1 + clen) !== cond.char) { match = false; break; }
           }
         }
         if (match) results.push(c);
@@ -599,14 +600,18 @@
       for (const r of displayResults) {
         const highlightMap = {};
         for (const cond of conditions) {
+          const clen = cond.char.length;
           if (cond.pos === 0) {
-            // Containment: find all positions of this char
+            // Containment: find all occurrences of this substring
             const combined = r[0] + r[1];
-            for (let i = 0; i < combined.length; i++) {
-              if (combined[i] === cond.char) highlightMap[i] = cond.char;
+            let idx = 0;
+            while ((idx = combined.indexOf(cond.char, idx)) !== -1) {
+              for (let j = 0; j < clen; j++) highlightMap[idx + j] = combined[idx + j];
+              idx += clen;
             }
           } else {
-            highlightMap[cond.pos - 1] = cond.char;
+            // Position: highlight starting from pos-1
+            for (let j = 0; j < clen; j++) highlightMap[cond.pos - 1 + j] = r[0] + r[1][cond.pos - 1 + j];
           }
         }
 
