@@ -1,0 +1,2008 @@
+{
+  "common_chars": [
+    "一",
+    "万",
+    "三",
+    "上",
+    "下",
+    "不",
+    "与",
+    "东",
+    "两",
+    "中",
+    "为",
+    "乐",
+    "九",
+    "乡",
+    "事",
+    "云",
+    "五",
+    "人",
+    "今",
+    "从",
+    "似",
+    "作",
+    "光",
+    "入",
+    "关",
+    "出",
+    "初",
+    "别",
+    "到",
+    "前",
+    "北",
+    "十",
+    "千",
+    "半",
+    "南",
+    "去",
+    "古",
+    "可",
+    "台",
+    "叶",
+    "向",
+    "君",
+    "四",
+    "回",
+    "在",
+    "地",
+    "城",
+    "声",
+    "处",
+    "多",
+    "夜",
+    "大",
+    "天",
+    "头",
+    "女",
+    "好",
+    "如",
+    "子",
+    "孤",
+    "客",
+    "宫",
+    "家",
+    "寒",
+    "对",
+    "将",
+    "少",
+    "尘",
+    "尽",
+    "山",
+    "已",
+    "平",
+    "年",
+    "应",
+    "度",
+    "开",
+    "弦",
+    "归",
+    "当",
+    "影",
+    "得",
+    "心",
+    "忽",
+    "怜",
+    "思",
+    "恨",
+    "情",
+    "愁",
+    "意",
+    "成",
+    "我",
+    "故",
+    "教",
+    "散",
+    "新",
+    "无",
+    "日",
+    "旧",
+    "时",
+    "明",
+    "昏",
+    "春",
+    "是",
+    "晓",
+    "暗",
+    "暮",
+    "曲",
+    "更",
+    "月",
+    "有",
+    "望",
+    "朝",
+    "未",
+    "来",
+    "杨",
+    "林",
+    "柳",
+    "树",
+    "梦",
+    "楼",
+    "欲",
+    "歌",
+    "此",
+    "死",
+    "水",
+    "汉",
+    "江",
+    "沈",
+    "河",
+    "泪",
+    "流",
+    "海",
+    "深",
+    "清",
+    "满",
+    "烟",
+    "照",
+    "犹",
+    "独",
+    "玉",
+    "王",
+    "琶",
+    "生",
+    "登",
+    "白",
+    "百",
+    "皆",
+    "相",
+    "看",
+    "知",
+    "石",
+    "秋",
+    "空",
+    "笑",
+    "红",
+    "绿",
+    "自",
+    "舟",
+    "色",
+    "花",
+    "草",
+    "莫",
+    "落",
+    "行",
+    "衣",
+    "西",
+    "见",
+    "谁",
+    "路",
+    "身",
+    "转",
+    "近",
+    "还",
+    "送",
+    "道",
+    "酒",
+    "里",
+    "重",
+    "金",
+    "锦",
+    "长",
+    "门",
+    "问",
+    "间",
+    "闻",
+    "阳",
+    "难",
+    "雁",
+    "雨",
+    "雪",
+    "霜",
+    "青",
+    "面",
+    "须",
+    "风",
+    "飞",
+    "马",
+    "高",
+    "鸟",
+    "黄",
+    "龙"
+  ],
+  "top100_five": [
+    {
+      "upper": "大道如青天",
+      "lower": "我独不得出",
+      "title": "杂曲歌辞 行路难三首 二",
+      "author": "李白",
+      "heat": 999,
+      "score": 10,
+      "couplet_idx": 7
+    },
+    {
+      "upper": "深林人不知",
+      "lower": "明月来相照",
+      "title": "辋川集 竹里馆",
+      "author": "王维",
+      "heat": 999,
+      "score": 10,
+      "couplet_idx": 175
+    },
+    {
+      "upper": "夜来风雨声",
+      "lower": "花落知多少",
+      "title": "春晓",
+      "author": "孟浩然",
+      "heat": 999,
+      "score": 10,
+      "couplet_idx": 215
+    },
+    {
+      "upper": "君自故乡来",
+      "lower": "应知故乡事",
+      "title": "杂诗三首 二",
+      "author": "王维",
+      "heat": 724,
+      "score": 10,
+      "couplet_idx": 931
+    },
+    {
+      "upper": "无时独不见",
+      "lower": "流泪空自知",
+      "title": "塞下曲六首 四",
+      "author": "李白",
+      "heat": 686,
+      "score": 10,
+      "couplet_idx": 1382
+    },
+    {
+      "upper": "两草犹一心",
+      "lower": "人心不如草",
+      "title": "白头吟",
+      "author": "李白",
+      "heat": 263,
+      "score": 10,
+      "couplet_idx": 4681
+    },
+    {
+      "upper": "朝见日上天",
+      "lower": "暮见日入地",
+      "title": "感时",
+      "author": "白居易",
+      "heat": 261,
+      "score": 10,
+      "couplet_idx": 5213
+    },
+    {
+      "upper": "如此来四年",
+      "lower": "一千三百夜",
+      "title": "冬夜",
+      "author": "白居易",
+      "heat": 253,
+      "score": 10,
+      "couplet_idx": 10948
+    },
+    {
+      "upper": "望春春未到",
+      "lower": "应在海门东",
+      "title": "闲卧",
+      "author": "白居易",
+      "heat": 253,
+      "score": 10,
+      "couplet_idx": 11188
+    },
+    {
+      "upper": "意中如有得",
+      "lower": "尽日不欲还",
+      "title": "秋山",
+      "author": "白居易",
+      "heat": 251,
+      "score": 10,
+      "couplet_idx": 12857
+    },
+    {
+      "upper": "上有无心云",
+      "lower": "下有欲落石",
+      "title": "白水县崔少府十九翁高斋三十韵",
+      "author": "杜甫",
+      "heat": 250,
+      "score": 10,
+      "couplet_idx": 13426
+    },
+    {
+      "upper": "客从江南来",
+      "lower": "来时月上弦",
+      "title": "客中月",
+      "author": "白居易",
+      "heat": 249,
+      "score": 10,
+      "couplet_idx": 17318
+    },
+    {
+      "upper": "前秋去秋思",
+      "lower": "一一生此时",
+      "title": "曲江感秋",
+      "author": "白居易",
+      "heat": 248,
+      "score": 10,
+      "couplet_idx": 18760
+    },
+    {
+      "upper": "去影忽不见",
+      "lower": "回风送天声",
+      "title": "古风 七",
+      "author": "李白",
+      "heat": 244,
+      "score": 10,
+      "couplet_idx": 23041
+    },
+    {
+      "upper": "十月山寒重",
+      "lower": "孤城月水昏",
+      "title": "愁坐",
+      "author": "杜甫",
+      "heat": 243,
+      "score": 10,
+      "couplet_idx": 24391
+    },
+    {
+      "upper": "天欲今朝雨",
+      "lower": "山归万古春",
+      "title": "上白帝城二首 一",
+      "author": "杜甫",
+      "heat": 239,
+      "score": 10,
+      "couplet_idx": 29495
+    },
+    {
+      "upper": "树初黄叶日",
+      "lower": "人欲白头时",
+      "title": "途中感秋",
+      "author": "白居易",
+      "heat": 238,
+      "score": 10,
+      "couplet_idx": 31111
+    },
+    {
+      "upper": "孤光为谁来",
+      "lower": "似为我与君",
+      "title": "九月十五日观月听琴西湖示坐客",
+      "author": "苏轼",
+      "heat": 238,
+      "score": 10,
+      "couplet_idx": 32787
+    },
+    {
+      "upper": "行歌望山去",
+      "lower": "意似归乡人",
+      "title": "游蓝田山卜居",
+      "author": "白居易",
+      "heat": 236,
+      "score": 10,
+      "couplet_idx": 33183
+    },
+    {
+      "upper": "客愁不可度",
+      "lower": "行上东大楼",
+      "title": "秋浦歌十七首 一",
+      "author": "李白",
+      "heat": 236,
+      "score": 10,
+      "couplet_idx": 33422
+    },
+    {
+      "upper": "日照锦城头",
+      "lower": "朝光散花楼",
+      "title": "登锦城散花楼",
+      "author": "李白",
+      "heat": 236,
+      "score": 10,
+      "couplet_idx": 33500
+    },
+    {
+      "upper": "一为云雨别",
+      "lower": "此地生秋草",
+      "title": "寄远十一首 七",
+      "author": "李白",
+      "heat": 236,
+      "score": 10,
+      "couplet_idx": 33578
+    },
+    {
+      "upper": "叶声落如雨",
+      "lower": "月色白似霜",
+      "title": "秋夕",
+      "author": "白居易",
+      "heat": 234,
+      "score": 10,
+      "couplet_idx": 34967
+    },
+    {
+      "upper": "关河千里别",
+      "lower": "风雪一身行",
+      "title": "自江陵之徐州路上寄兄弟",
+      "author": "白居易",
+      "heat": 234,
+      "score": 10,
+      "couplet_idx": 35026
+    },
+    {
+      "upper": "故乡不可见",
+      "lower": "云水空如一",
+      "title": "和使君五郎西楼望远思归",
+      "author": "王维",
+      "heat": 234,
+      "score": 10,
+      "couplet_idx": 35709
+    },
+    {
+      "upper": "见君万里心",
+      "lower": "海水照秋月",
+      "title": "登巴陵开元寺西阁赠衡岳僧方外",
+      "author": "李白",
+      "heat": 234,
+      "score": 10,
+      "couplet_idx": 35983
+    },
+    {
+      "upper": "风尘为客日",
+      "lower": "江海送君情",
+      "title": "送元二适江左",
+      "author": "杜甫",
+      "heat": 233,
+      "score": 10,
+      "couplet_idx": 37183
+    },
+    {
+      "upper": "春风来海上",
+      "lower": "明月在江头",
+      "title": "正月十五日夜月",
+      "author": "白居易",
+      "heat": 233,
+      "score": 10,
+      "couplet_idx": 37816
+    },
+    {
+      "upper": "三春时有雁",
+      "lower": "万里少行人",
+      "title": "送刘司直赴安西",
+      "author": "王维",
+      "heat": 233,
+      "score": 10,
+      "couplet_idx": 38575
+    },
+    {
+      "upper": "可怜人与月",
+      "lower": "夜夜江楼下",
+      "title": "江月五首  其二",
+      "author": "苏轼",
+      "heat": 233,
+      "score": 10,
+      "couplet_idx": 39772
+    },
+    {
+      "upper": "天明问前路",
+      "lower": "已度千重山",
+      "title": "和陶饮酒二十首  其五",
+      "author": "苏轼",
+      "heat": 231,
+      "score": 10,
+      "couplet_idx": 40427
+    },
+    {
+      "upper": "故人不可见",
+      "lower": "汉水日东流",
+      "title": "哭孟浩然",
+      "author": "王维",
+      "heat": 229,
+      "score": 10,
+      "couplet_idx": 40977
+    },
+    {
+      "upper": "玉树春归日",
+      "lower": "金宫乐事多",
+      "title": "杂曲歌辞 宫中行乐词 四",
+      "author": "李白",
+      "heat": 228,
+      "score": 10,
+      "couplet_idx": 42139
+    },
+    {
+      "upper": "江水三回曲",
+      "lower": "愁人两地情",
+      "title": "酬严中丞晚眺黔江见寄",
+      "author": "白居易",
+      "heat": 228,
+      "score": 10,
+      "couplet_idx": 42379
+    },
+    {
+      "upper": "江上今重去",
+      "lower": "城东更一行",
+      "title": "除苏州刺史别洛城东花",
+      "author": "白居易",
+      "heat": 228,
+      "score": 10,
+      "couplet_idx": 42573
+    },
+    {
+      "upper": "万重云水思",
+      "lower": "今夜月明前",
+      "title": "夜闻筝中弹潇湘送神曲感旧",
+      "author": "白居易",
+      "heat": 228,
+      "score": 10,
+      "couplet_idx": 43162
+    },
+    {
+      "upper": "江月夜夜好",
+      "lower": "山云朝朝新",
+      "title": "徐元用使君与其子端常邀仆与小儿过同游东山浮金堂戏作此诗",
+      "author": "苏轼",
+      "heat": 225,
+      "score": 10,
+      "couplet_idx": 45595
+    },
+    {
+      "upper": "白云还自散",
+      "lower": "明月落谁家",
+      "title": "忆东山二首 一",
+      "author": "李白",
+      "heat": 224,
+      "score": 10,
+      "couplet_idx": 46463
+    },
+    {
+      "upper": "江头一夜雨",
+      "lower": "晓路无新花",
+      "title": "春雨",
+      "author": "陆游",
+      "heat": 215,
+      "score": 10,
+      "couplet_idx": 49865
+    },
+    {
+      "upper": "露从今夜白",
+      "lower": "月是故乡明",
+      "title": "月夜忆舍弟",
+      "author": "杜甫",
+      "heat": 999,
+      "score": 9,
+      "couplet_idx": 50
+    },
+    {
+      "upper": "行路难如此",
+      "lower": "登楼望欲迷",
+      "title": "春日梓州登楼二首 一",
+      "author": "杜甫",
+      "heat": 999,
+      "score": 9,
+      "couplet_idx": 57
+    },
+    {
+      "upper": "客路青山外",
+      "lower": "行舟绿水前",
+      "title": "次北固山下",
+      "author": "王湾",
+      "heat": 999,
+      "score": 9,
+      "couplet_idx": 166
+    },
+    {
+      "upper": "海日生残夜",
+      "lower": "江春入旧年",
+      "title": "次北固山下",
+      "author": "王湾",
+      "heat": 999,
+      "score": 9,
+      "couplet_idx": 168
+    },
+    {
+      "upper": "木落雁南度",
+      "lower": "北风江上寒",
+      "title": "早寒江上有怀",
+      "author": "孟浩然",
+      "heat": 999,
+      "score": 9,
+      "couplet_idx": 206
+    },
+    {
+      "upper": "暝色入高楼",
+      "lower": "有人楼上愁",
+      "title": "菩萨蛮",
+      "author": "李白",
+      "heat": 753,
+      "score": 9,
+      "couplet_idx": 576
+    },
+    {
+      "upper": "柳暗百花明",
+      "lower": "春深五凤城",
+      "title": "早朝",
+      "author": "王维",
+      "heat": 753,
+      "score": 9,
+      "couplet_idx": 583
+    },
+    {
+      "upper": "春草明年绿",
+      "lower": "王孙归不归",
+      "title": "送别",
+      "author": "王维",
+      "heat": 746,
+      "score": 9,
+      "couplet_idx": 673
+    },
+    {
+      "upper": "故人入我梦",
+      "lower": "明我长相忆",
+      "title": "梦李白二首 一",
+      "author": "杜甫",
+      "heat": 743,
+      "score": 9,
+      "couplet_idx": 697
+    },
+    {
+      "upper": "流水如有意",
+      "lower": "暮禽相与还",
+      "title": "归嵩山作",
+      "author": "王维",
+      "heat": 738,
+      "score": 9,
+      "couplet_idx": 797
+    },
+    {
+      "upper": "江流天地外",
+      "lower": "山色有无中",
+      "title": "汉江临泛",
+      "author": "王维",
+      "heat": 738,
+      "score": 9,
+      "couplet_idx": 805
+    },
+    {
+      "upper": "五月天山雪",
+      "lower": "无花祗有寒",
+      "title": "塞下曲六首 一",
+      "author": "李白",
+      "heat": 683,
+      "score": 9,
+      "couplet_idx": 1478
+    },
+    {
+      "upper": "白日依山尽",
+      "lower": "黄河入海流",
+      "title": "登鹳雀楼",
+      "author": "王之涣",
+      "heat": 679,
+      "score": 9,
+      "couplet_idx": 1516
+    },
+    {
+      "upper": "只在此山中",
+      "lower": "云深不知处",
+      "title": "寻隐者不遇",
+      "author": "贾岛",
+      "heat": 679,
+      "score": 9,
+      "couplet_idx": 1530
+    },
+    {
+      "upper": "路出寒云外",
+      "lower": "人归暮雪时",
+      "title": "李端公",
+      "author": "卢纶",
+      "heat": 643,
+      "score": 9,
+      "couplet_idx": 1807
+    },
+    {
+      "upper": "江上柳如烟",
+      "lower": "雁飞残月天",
+      "title": "菩萨蛮 二",
+      "author": "温庭筠",
+      "heat": 638,
+      "score": 9,
+      "couplet_idx": 1854
+    },
+    {
+      "upper": "雨中黄叶树",
+      "lower": "灯下白头人",
+      "title": "喜外弟卢纶见宿",
+      "author": "司空曙",
+      "heat": 633,
+      "score": 9,
+      "couplet_idx": 1962
+    },
+    {
+      "upper": "一声河满子",
+      "lower": "双泪落君前",
+      "title": "宫词二首 一",
+      "author": "张祜",
+      "heat": 594,
+      "score": 9,
+      "couplet_idx": 2414
+    },
+    {
+      "upper": "云雨朝还暮",
+      "lower": "烟花春复秋",
+      "title": "巫山一段云 二",
+      "author": "李珣",
+      "heat": 564,
+      "score": 9,
+      "couplet_idx": 2623
+    },
+    {
+      "upper": "五十年来心",
+      "lower": "未如今日泰",
+      "title": "卯时酒",
+      "author": "白居易",
+      "heat": 265,
+      "score": 9,
+      "couplet_idx": 3696
+    },
+    {
+      "upper": "相见不得亲",
+      "lower": "不如不相见",
+      "title": "相逢行",
+      "author": "李白",
+      "heat": 265,
+      "score": 9,
+      "couplet_idx": 3859
+    },
+    {
+      "upper": "相见情已深",
+      "lower": "未语可知心",
+      "title": "相逢行",
+      "author": "李白",
+      "heat": 265,
+      "score": 9,
+      "couplet_idx": 3860
+    },
+    {
+      "upper": "从事得如此",
+      "lower": "人人以为难",
+      "title": "哭孔戡",
+      "author": "白居易",
+      "heat": 264,
+      "score": 9,
+      "couplet_idx": 4375
+    },
+    {
+      "upper": "忽疑天上落",
+      "lower": "不似人间有",
+      "title": "双石",
+      "author": "白居易",
+      "heat": 264,
+      "score": 9,
+      "couplet_idx": 4506
+    },
+    {
+      "upper": "大江从西来",
+      "lower": "上有千仞山",
+      "title": "神女庙",
+      "author": "苏轼",
+      "heat": 263,
+      "score": 9,
+      "couplet_idx": 4686
+    },
+    {
+      "upper": "白水暮东流",
+      "lower": "青山犹哭声",
+      "title": "新安吏",
+      "author": "杜甫",
+      "heat": 262,
+      "score": 9,
+      "couplet_idx": 4764
+    },
+    {
+      "upper": "一向石门里",
+      "lower": "任君春草深",
+      "title": "燕子龛禅师",
+      "author": "王维",
+      "heat": 260,
+      "score": 9,
+      "couplet_idx": 5725
+    },
+    {
+      "upper": "昨日忽出门",
+      "lower": "孤舟转西城",
+      "title": "初别子由",
+      "author": "苏轼",
+      "heat": 260,
+      "score": 9,
+      "couplet_idx": 5905
+    },
+    {
+      "upper": "衣上见新月",
+      "lower": "霜中登故畦",
+      "title": "泛溪",
+      "author": "杜甫",
+      "heat": 259,
+      "score": 9,
+      "couplet_idx": 6138
+    },
+    {
+      "upper": "春风日高睡",
+      "lower": "秋月夜深看",
+      "title": "赠元稹",
+      "author": "白居易",
+      "heat": 259,
+      "score": 9,
+      "couplet_idx": 6201
+    },
+    {
+      "upper": "三月三十日",
+      "lower": "春归日复暮",
+      "title": "送春",
+      "author": "白居易",
+      "heat": 259,
+      "score": 9,
+      "couplet_idx": 6332
+    },
+    {
+      "upper": "今日送春心",
+      "lower": "心如别亲故",
+      "title": "送春",
+      "author": "白居易",
+      "heat": 259,
+      "score": 9,
+      "couplet_idx": 6341
+    },
+    {
+      "upper": "少年君莫怪",
+      "lower": "头白自应知",
+      "title": "偶作",
+      "author": "白居易",
+      "heat": 259,
+      "score": 9,
+      "couplet_idx": 6395
+    },
+    {
+      "upper": "君如天上月",
+      "lower": "不肯一回照",
+      "title": "自代内赠",
+      "author": "李白",
+      "heat": 258,
+      "score": 9,
+      "couplet_idx": 6984
+    },
+    {
+      "upper": "此外有黄楼",
+      "lower": "楼下一河水",
+      "title": "答王巩",
+      "author": "苏轼",
+      "heat": 258,
+      "score": 9,
+      "couplet_idx": 6996
+    },
+    {
+      "upper": "青青东郊草",
+      "lower": "中有归山路",
+      "title": "寄隐者",
+      "author": "白居易",
+      "heat": 257,
+      "score": 9,
+      "couplet_idx": 7312
+    },
+    {
+      "upper": "万叶落头上",
+      "lower": "千峰来面前",
+      "title": "截树",
+      "author": "白居易",
+      "heat": 257,
+      "score": 9,
+      "couplet_idx": 7327
+    },
+    {
+      "upper": "南北五千里",
+      "lower": "吾身在中间",
+      "title": "夜雨有念",
+      "author": "白居易",
+      "heat": 257,
+      "score": 9,
+      "couplet_idx": 7341
+    },
+    {
+      "upper": "如我知足心",
+      "lower": "人中百无一",
+      "title": "狂言示诸侄",
+      "author": "白居易",
+      "heat": 257,
+      "score": 9,
+      "couplet_idx": 7457
+    },
+    {
+      "upper": "怜君古人风",
+      "lower": "重有君子儒",
+      "title": "哭王质夫",
+      "author": "白居易",
+      "heat": 256,
+      "score": 9,
+      "couplet_idx": 7940
+    },
+    {
+      "upper": "大江东流去",
+      "lower": "游子去日长",
+      "title": "成都府",
+      "author": "杜甫",
+      "heat": 255,
+      "score": 9,
+      "couplet_idx": 8057
+    },
+    {
+      "upper": "我有心中愁",
+      "lower": "知君剪不得",
+      "title": "啄木曲",
+      "author": "白居易",
+      "heat": 255,
+      "score": 9,
+      "couplet_idx": 8715
+    },
+    {
+      "upper": "望重青云客",
+      "lower": "情深白首年",
+      "title": "会昌春连宴即事",
+      "author": "白居易",
+      "heat": 255,
+      "score": 9,
+      "couplet_idx": 8915
+    },
+    {
+      "upper": "十五入汉宫",
+      "lower": "花颜笑春红",
+      "title": "怨歌行",
+      "author": "李白",
+      "heat": 255,
+      "score": 9,
+      "couplet_idx": 8926
+    },
+    {
+      "upper": "千里一回首",
+      "lower": "万里一长歌",
+      "title": "书情题蔡舍人雄",
+      "author": "李白",
+      "heat": 255,
+      "score": 9,
+      "couplet_idx": 8999
+    },
+    {
+      "upper": "十年不还乡",
+      "lower": "儿女日夜长",
+      "title": "京师哭任遵圣",
+      "author": "苏轼",
+      "heat": 255,
+      "score": 9,
+      "couplet_idx": 9470
+    },
+    {
+      "upper": "仙人不见我",
+      "lower": "明月空相知",
+      "title": "泾川送族弟錞",
+      "author": "李白",
+      "heat": 254,
+      "score": 9,
+      "couplet_idx": 10334
+    },
+    {
+      "upper": "天水秋云薄",
+      "lower": "从西万里风",
+      "title": "雨晴",
+      "author": "杜甫",
+      "heat": 253,
+      "score": 9,
+      "couplet_idx": 10752
+    },
+    {
+      "upper": "草青临水地",
+      "lower": "头白见花人",
+      "title": "感春",
+      "author": "白居易",
+      "heat": 253,
+      "score": 9,
+      "couplet_idx": 11117
+    },
+    {
+      "upper": "有山当枕上",
+      "lower": "无事到心中",
+      "title": "闲卧",
+      "author": "白居易",
+      "heat": 253,
+      "score": 9,
+      "couplet_idx": 11186
+    },
+    {
+      "upper": "雁思来天北",
+      "lower": "砧愁满水南",
+      "title": "秋思",
+      "author": "白居易",
+      "heat": 253,
+      "score": 9,
+      "couplet_idx": 11203
+    },
+    {
+      "upper": "酒酣出送我",
+      "lower": "风雪黄河北",
+      "title": "伤唐衢二首 一",
+      "author": "白居易",
+      "heat": 252,
+      "score": 9,
+      "couplet_idx": 11954
+    },
+    {
+      "upper": "何如愁独日",
+      "lower": "忽见平生人",
+      "title": "赠别崔五",
+      "author": "白居易",
+      "heat": 252,
+      "score": 9,
+      "couplet_idx": 12091
+    },
+    {
+      "upper": "此时重一去",
+      "lower": "去合到三清",
+      "title": "冬日归旧山",
+      "author": "李白",
+      "heat": 252,
+      "score": 9,
+      "couplet_idx": 12327
+    },
+    {
+      "upper": "上天不难知",
+      "lower": "好恶与我一",
+      "title": "子由生日",
+      "author": "苏轼",
+      "heat": 252,
+      "score": 9,
+      "couplet_idx": 12684
+    },
+    {
+      "upper": "天上秋期近",
+      "lower": "人间月影清",
+      "title": "月",
+      "author": "杜甫",
+      "heat": 251,
+      "score": 9,
+      "couplet_idx": 12787
+    },
+    {
+      "upper": "人生不满百",
+      "lower": "一别费三年",
+      "title": "和子由苦寒见寄",
+      "author": "苏轼",
+      "heat": 251,
+      "score": 9,
+      "couplet_idx": 13128
+    },
+    {
+      "upper": "西来有好鸟",
+      "lower": "为我下青冥",
+      "title": "奉酬薛十二丈判官见赠",
+      "author": "杜甫",
+      "heat": 250,
+      "score": 9,
+      "couplet_idx": 13798
+    },
+    {
+      "upper": "我生来几时",
+      "lower": "万有四千日",
+      "title": "首夏病间",
+      "author": "白居易",
+      "heat": 250,
+      "score": 9,
+      "couplet_idx": 14861
+    },
+    {
+      "upper": "自为江上客",
+      "lower": "半在山中住",
+      "title": "山中独吟",
+      "author": "白居易",
+      "heat": 250,
+      "score": 9,
+      "couplet_idx": 14928
+    },
+    {
+      "upper": "有时还后到",
+      "lower": "无处不相将",
+      "title": "渭村退居寄礼部崔侍郎翰林钱舍人诗一百韵",
+      "author": "白居易",
+      "heat": 250,
+      "score": 9,
+      "couplet_idx": 15232
+    }
+  ],
+  "top100_seven": [
+    {
+      "upper": "东望少城花满烟",
+      "lower": "百花高楼更可怜",
+      "title": "江畔独步寻花七绝句 四",
+      "author": "杜甫",
+      "heat": 669,
+      "score": 14,
+      "couplet_idx": 1703
+    },
+    {
+      "upper": "好去今年江上春",
+      "lower": "明年未死还相见",
+      "title": "送春归",
+      "author": "白居易",
+      "heat": 234,
+      "score": 14,
+      "couplet_idx": 35010
+    },
+    {
+      "upper": "近有人从海上回",
+      "lower": "海山深处见楼台",
+      "title": "客有说",
+      "author": "白居易",
+      "heat": 234,
+      "score": 14,
+      "couplet_idx": 35669
+    },
+    {
+      "upper": "明月春风三五夜",
+      "lower": "万人行乐一人愁",
+      "title": "长安正月十五日",
+      "author": "白居易",
+      "heat": 224,
+      "score": 14,
+      "couplet_idx": 45797
+    },
+    {
+      "upper": "轮台东门送君去",
+      "lower": "去时雪满天山路",
+      "title": "白雪歌送武判官归京",
+      "author": "岑参",
+      "heat": 999,
+      "score": 13,
+      "couplet_idx": 327
+    },
+    {
+      "upper": "山回路转不见君",
+      "lower": "雪上空留马行处",
+      "title": "白雪歌送武判官归京",
+      "author": "岑参",
+      "heat": 999,
+      "score": 13,
+      "couplet_idx": 328
+    },
+    {
+      "upper": "来如春梦不多时",
+      "lower": "去似朝云无觅处",
+      "title": "花非花",
+      "author": "白居易",
+      "heat": 734,
+      "score": 13,
+      "couplet_idx": 834
+    },
+    {
+      "upper": "相思相见知何日",
+      "lower": "此时此夜难为情",
+      "title": "三五七言",
+      "author": "李白",
+      "heat": 729,
+      "score": 13,
+      "couplet_idx": 910
+    },
+    {
+      "upper": "自今已后知人意",
+      "lower": "一日须来一百回",
+      "title": "三绝句 二",
+      "author": "杜甫",
+      "heat": 688,
+      "score": 13,
+      "couplet_idx": 1296
+    },
+    {
+      "upper": "去年花里逢君别",
+      "lower": "今日花开已一年",
+      "title": "寄李儋元锡",
+      "author": "韦应物",
+      "heat": 688,
+      "score": 13,
+      "couplet_idx": 1341
+    },
+    {
+      "upper": "南人上来歌一曲",
+      "lower": "北人莫上动乡情",
+      "title": "竹枝词九首 一",
+      "author": "刘禹锡",
+      "heat": 674,
+      "score": 13,
+      "couplet_idx": 1658
+    },
+    {
+      "upper": "西归万里未千里",
+      "lower": "应到故园春草生",
+      "title": "早秋韶阳夜雨",
+      "author": "许浑",
+      "heat": 633,
+      "score": 13,
+      "couplet_idx": 1988
+    },
+    {
+      "upper": "青海长云暗雪山",
+      "lower": "孤城遥望玉门关",
+      "title": "从军行七首 四",
+      "author": "王昌龄",
+      "heat": 624,
+      "score": 13,
+      "couplet_idx": 2105
+    },
+    {
+      "upper": "青海长云暗雪山",
+      "lower": "孤城遥望雁门关",
+      "title": "相和歌辞 从军行 四",
+      "author": "王昌龄",
+      "heat": 619,
+      "score": 13,
+      "couplet_idx": 2121
+    },
+    {
+      "upper": "青山朝别暮还见",
+      "lower": "嘶马出门思旧乡",
+      "title": "送陈章甫",
+      "author": "李颀",
+      "heat": 590,
+      "score": 13,
+      "couplet_idx": 2451
+    },
+    {
+      "upper": "酷怜风月为多情",
+      "lower": "还到春时别恨生",
+      "title": "寄人 二",
+      "author": "张泌",
+      "heat": 569,
+      "score": 13,
+      "couplet_idx": 2573
+    },
+    {
+      "upper": "春风草绿北邙山",
+      "lower": "此地年年生死别",
+      "title": "挽歌词",
+      "author": "白居易",
+      "heat": 253,
+      "score": 13,
+      "couplet_idx": 11099
+    },
+    {
+      "upper": "黄河水白黄云秋",
+      "lower": "行人河边相对愁",
+      "title": "生离别",
+      "author": "白居易",
+      "heat": 249,
+      "score": 13,
+      "couplet_idx": 17316
+    },
+    {
+      "upper": "去年花开我已病",
+      "lower": "今年对花还草草",
+      "title": "和秦太虚梅花",
+      "author": "苏轼",
+      "heat": 243,
+      "score": 13,
+      "couplet_idx": 26356
+    },
+    {
+      "upper": "古情不尽东流水",
+      "lower": "此地悲风愁白杨",
+      "title": "劳劳亭歌",
+      "author": "李白",
+      "heat": 241,
+      "score": 13,
+      "couplet_idx": 28567
+    },
+    {
+      "upper": "四十九年身老日",
+      "lower": "一百五夜月明天",
+      "title": "寒食夜",
+      "author": "白居易",
+      "heat": 239,
+      "score": 13,
+      "couplet_idx": 29784
+    },
+    {
+      "upper": "犹去孤舟三四里",
+      "lower": "水烟沙雨欲黄昏",
+      "title": "望江州",
+      "author": "白居易",
+      "heat": 234,
+      "score": 13,
+      "couplet_idx": 35103
+    },
+    {
+      "upper": "闻有酒时须笑乐",
+      "lower": "不关身事莫思量",
+      "title": "二月五日花下作",
+      "author": "白居易",
+      "heat": 233,
+      "score": 13,
+      "couplet_idx": 37800
+    },
+    {
+      "upper": "高高白月上青林",
+      "lower": "客去僧归独夜深",
+      "title": "宿灵岩寺上院",
+      "author": "白居易",
+      "heat": 233,
+      "score": 13,
+      "couplet_idx": 37919
+    },
+    {
+      "upper": "长恨春归无觅处",
+      "lower": "不知转入此中来",
+      "title": "大林寺桃花",
+      "author": "白居易",
+      "heat": 229,
+      "score": 13,
+      "couplet_idx": 40675
+    },
+    {
+      "upper": "一日不见如三月",
+      "lower": "一月相思如七年",
+      "title": "长斋月满寄思黯",
+      "author": "白居易",
+      "heat": 229,
+      "score": 13,
+      "couplet_idx": 40878
+    },
+    {
+      "upper": "故城门前春日斜",
+      "lower": "故城门里无人家",
+      "title": "过故洛城",
+      "author": "白居易",
+      "heat": 229,
+      "score": 13,
+      "couplet_idx": 40930
+    },
+    {
+      "upper": "千里万里春草色",
+      "lower": "黄河东流流不息",
+      "title": "楡林郡歌",
+      "author": "王维",
+      "heat": 229,
+      "score": 13,
+      "couplet_idx": 40944
+    },
+    {
+      "upper": "月寒江清夜沈沈",
+      "lower": "美人一笑千黄金",
+      "title": "白纻辞三首 二",
+      "author": "李白",
+      "heat": 229,
+      "score": 13,
+      "couplet_idx": 41003
+    },
+    {
+      "upper": "君如大江日千里",
+      "lower": "我如此水千山底",
+      "title": "送张职方吉甫赴闽漕六和寺中作",
+      "author": "苏轼",
+      "heat": 228,
+      "score": 13,
+      "couplet_idx": 43795
+    },
+    {
+      "upper": "今年到时夏云白",
+      "lower": "去年来时秋树红",
+      "title": "再因公事到骆口驿",
+      "author": "白居易",
+      "heat": 224,
+      "score": 13,
+      "couplet_idx": 45778
+    },
+    {
+      "upper": "万里月明同此夜",
+      "lower": "黄河东面海西头",
+      "title": "河阴夜泊忆微之",
+      "author": "白居易",
+      "heat": 224,
+      "score": 13,
+      "couplet_idx": 46015
+    },
+    {
+      "upper": "自别花来多少事",
+      "lower": "东风二十四回春",
+      "title": "杏园花下赠刘郎中",
+      "author": "白居易",
+      "heat": 224,
+      "score": 13,
+      "couplet_idx": 46053
+    },
+    {
+      "upper": "唯有相思似春色",
+      "lower": "江南江北送君归",
+      "title": "送沈子归江东",
+      "author": "王维",
+      "heat": 224,
+      "score": 13,
+      "couplet_idx": 46359
+    },
+    {
+      "upper": "白玉高楼看不见",
+      "lower": "相思须上望夫山",
+      "title": "别内赴征三首 一",
+      "author": "李白",
+      "heat": 224,
+      "score": 13,
+      "couplet_idx": 46490
+    },
+    {
+      "upper": "人人散后君须看",
+      "lower": "归到江南无此花",
+      "title": "看恽家牡丹花戏赠李二十",
+      "author": "白居易",
+      "heat": 219,
+      "score": 13,
+      "couplet_idx": 47189
+    },
+    {
+      "upper": "心是身王身是宫",
+      "lower": "君今居在我宫中",
+      "title": "自戏三绝句 身报心",
+      "author": "白居易",
+      "heat": 219,
+      "score": 13,
+      "couplet_idx": 47556
+    },
+    {
+      "upper": "此生此夜不长好",
+      "lower": "明月明年何处看",
+      "title": "阳关词三首 中秋月",
+      "author": "苏轼",
+      "heat": 219,
+      "score": 13,
+      "couplet_idx": 48140
+    },
+    {
+      "upper": "世间行乐亦如此",
+      "lower": "古来万事东流水",
+      "title": "梦游天姥吟留别",
+      "author": "李白",
+      "heat": 999,
+      "score": 12,
+      "couplet_idx": 236
+    },
+    {
+      "upper": "云帆望远不相见",
+      "lower": "日暮长江空自流",
+      "title": "送别",
+      "author": "李白",
+      "heat": 999,
+      "score": 12,
+      "couplet_idx": 256
+    },
+    {
+      "upper": "忽然一夜春风来",
+      "lower": "千树万树梨花开",
+      "title": "白雪歌送武判官归京",
+      "author": "岑参",
+      "heat": 999,
+      "score": 12,
+      "couplet_idx": 321
+    },
+    {
+      "upper": "故人昔新今尚故",
+      "lower": "还见新人有故时",
+      "title": "怨情",
+      "author": "李白",
+      "heat": 749,
+      "score": 12,
+      "couplet_idx": 647
+    },
+    {
+      "upper": "黄云万里动风色",
+      "lower": "白波九道流雪山",
+      "title": "庐山谣寄卢侍御虚舟",
+      "author": "李白",
+      "heat": 747,
+      "score": 12,
+      "couplet_idx": 663
+    },
+    {
+      "upper": "来如春梦几多时",
+      "lower": "去似朝云无觅处",
+      "title": "花非花",
+      "author": "白居易",
+      "heat": 734,
+      "score": 12,
+      "couplet_idx": 833
+    },
+    {
+      "upper": "天明独去无道路",
+      "lower": "出入高下穷烟霏",
+      "title": "山石",
+      "author": "韩愈",
+      "heat": 707,
+      "score": 12,
+      "couplet_idx": 1068
+    },
+    {
+      "upper": "劝君更尽一杯酒",
+      "lower": "西出阳关无故人",
+      "title": "渭城曲",
+      "author": "王维",
+      "heat": 684,
+      "score": 12,
+      "couplet_idx": 1407
+    },
+    {
+      "upper": "杨柳青青江水平",
+      "lower": "闻郎江上唱歌声",
+      "title": "竹枝词二首 一",
+      "author": "刘禹锡",
+      "heat": 674,
+      "score": 12,
+      "couplet_idx": 1653
+    },
+    {
+      "upper": "秦时明月汉时关",
+      "lower": "万里长征人未还",
+      "title": "出塞二首 一",
+      "author": "王昌龄",
+      "heat": 674,
+      "score": 12,
+      "couplet_idx": 1683
+    },
+    {
+      "upper": "谁家玉笛暗飞声",
+      "lower": "散入春风满洛城",
+      "title": "春夜洛城闻笛",
+      "author": "李白",
+      "heat": 674,
+      "score": 12,
+      "couplet_idx": 1687
+    },
+    {
+      "upper": "满宫明月梨花白",
+      "lower": "故人万里关山隔",
+      "title": "菩萨蛮 九",
+      "author": "温庭筠",
+      "heat": 638,
+      "score": 12,
+      "couplet_idx": 1877
+    },
+    {
+      "upper": "春风自绿江南岸",
+      "lower": "明月何时照我还",
+      "title": "泊船瓜洲",
+      "author": "王安石",
+      "heat": 629,
+      "score": 12,
+      "couplet_idx": 2040
+    },
+    {
+      "upper": "庭前时有东风入",
+      "lower": "杨柳千条尽向西",
+      "title": "代春怨",
+      "author": "刘方平",
+      "heat": 604,
+      "score": 12,
+      "couplet_idx": 2220
+    },
+    {
+      "upper": "身外水天银一色",
+      "lower": "城中有此月明无",
+      "title": "四时田园杂兴六十首 秋日田园杂兴十二绝 其七",
+      "author": "范成大",
+      "heat": 604,
+      "score": 12,
+      "couplet_idx": 2312
+    },
+    {
+      "upper": "谁谓含愁独不见",
+      "lower": "更教明月照流黄",
+      "title": "古意呈补阙乔知之",
+      "author": "沈佺期",
+      "heat": 603,
+      "score": 12,
+      "couplet_idx": 2374
+    },
+    {
+      "upper": "醉卧不知白日暮",
+      "lower": "有时空望孤云高",
+      "title": "送陈章甫",
+      "author": "李颀",
+      "heat": 590,
+      "score": 12,
+      "couplet_idx": 2455
+    },
+    {
+      "upper": "洛阳城里见秋风",
+      "lower": "欲作归书意万重",
+      "title": "秋思",
+      "author": "张籍",
+      "heat": 584,
+      "score": 12,
+      "couplet_idx": 2509
+    },
+    {
+      "upper": "月照城头乌半飞",
+      "lower": "霜凄万树风入衣",
+      "title": "琴歌",
+      "author": "李颀",
+      "heat": 583,
+      "score": 12,
+      "couplet_idx": 2534
+    },
+    {
+      "upper": "别有幽愁暗恨生",
+      "lower": "此时无声胜有声",
+      "title": "琵琶引",
+      "author": "白居易",
+      "heat": 265,
+      "score": 12,
+      "couplet_idx": 3623
+    },
+    {
+      "upper": "古往今来共一时",
+      "lower": "人生万事无不有",
+      "title": "可叹",
+      "author": "杜甫",
+      "heat": 264,
+      "score": 12,
+      "couplet_idx": 4347
+    },
+    {
+      "upper": "悲来不吟还不笑",
+      "lower": "天下无人知我心",
+      "title": "悲歌行",
+      "author": "李白",
+      "heat": 257,
+      "score": 12,
+      "couplet_idx": 7564
+    },
+    {
+      "upper": "古来如此非独我",
+      "lower": "未死有酒且高歌",
+      "title": "浩歌行",
+      "author": "白居易",
+      "heat": 255,
+      "score": 12,
+      "couplet_idx": 8575
+    },
+    {
+      "upper": "有似山开万里云",
+      "lower": "四望青天解人闷",
+      "title": "江夏赠韦南陵冰",
+      "author": "李白",
+      "heat": 253,
+      "score": 12,
+      "couplet_idx": 11507
+    },
+    {
+      "upper": "去年九日到东洛",
+      "lower": "今年九日来吴乡",
+      "title": "九日宴集醉题郡楼兼呈周殷二判官",
+      "author": "白居易",
+      "heat": 250,
+      "score": 12,
+      "couplet_idx": 15456
+    },
+    {
+      "upper": "清风吹歌人空去",
+      "lower": "歌曲自绕行云飞",
+      "title": "忆旧游寄谯郡元参军",
+      "author": "李白",
+      "heat": 250,
+      "score": 12,
+      "couplet_idx": 16145
+    },
+    {
+      "upper": "故人日夜望我归",
+      "lower": "相迎欲到长风沙",
+      "title": "次韵正辅同游白水山",
+      "author": "苏轼",
+      "heat": 250,
+      "score": 12,
+      "couplet_idx": 16702
+    },
+    {
+      "upper": "前岁花前五十二",
+      "lower": "今年花前五十五",
+      "title": "花前叹",
+      "author": "白居易",
+      "heat": 249,
+      "score": 12,
+      "couplet_idx": 17372
+    },
+    {
+      "upper": "东流不作西归水",
+      "lower": "落花辞条归故林",
+      "title": "相和歌辞 白头吟二首 一",
+      "author": "李白",
+      "heat": 248,
+      "score": 12,
+      "couplet_idx": 18373
+    },
+    {
+      "upper": "千里孤帆又独来",
+      "lower": "五年一梦谁相对",
+      "title": "龟山辩才师",
+      "author": "苏轼",
+      "heat": 248,
+      "score": 12,
+      "couplet_idx": 19475
+    },
+    {
+      "upper": "唯向深宫望明月",
+      "lower": "东西四五百回圆",
+      "title": "新乐府 上阳白发人\t愍怨旷也",
+      "author": "白居易",
+      "heat": 247,
+      "score": 12,
+      "couplet_idx": 19912
+    },
+    {
+      "upper": "山宫一闭无开日",
+      "lower": "未死此身不令出",
+      "title": "新乐府 陵园妾\t怜幽闭也",
+      "author": "白居易",
+      "heat": 246,
+      "score": 12,
+      "couplet_idx": 21241
+    },
+    {
+      "upper": "今人不见古时月",
+      "lower": "今月曾经照古人",
+      "title": "把酒问月",
+      "author": "李白",
+      "heat": 246,
+      "score": 12,
+      "couplet_idx": 21722
+    },
+    {
+      "upper": "古人今人若流水",
+      "lower": "共看明月皆如此",
+      "title": "把酒问月",
+      "author": "李白",
+      "heat": 246,
+      "score": 12,
+      "couplet_idx": 21723
+    },
+    {
+      "upper": "我今身世两相违",
+      "lower": "西流白日东流水",
+      "title": "寓居合江楼",
+      "author": "苏轼",
+      "heat": 244,
+      "score": 12,
+      "couplet_idx": 23383
+    },
+    {
+      "upper": "别时孤云今不飞",
+      "lower": "时独看云泪横臆",
+      "title": "苦战行",
+      "author": "杜甫",
+      "heat": 243,
+      "score": 12,
+      "couplet_idx": 23526
+    },
+    {
+      "upper": "到今不知白骨处",
+      "lower": "部曲有去皆无归",
+      "title": "去秋行",
+      "author": "杜甫",
+      "heat": 243,
+      "score": 12,
+      "couplet_idx": 23528
+    },
+    {
+      "upper": "新馆寒来多少客",
+      "lower": "欲回歌酒暖风尘",
+      "title": "题新馆",
+      "author": "白居易",
+      "heat": 243,
+      "score": 12,
+      "couplet_idx": 25150
+    },
+    {
+      "upper": "昂头问客几时归",
+      "lower": "客道秋风黄叶飞",
+      "title": "送别",
+      "author": "苏轼",
+      "heat": 243,
+      "score": 12,
+      "couplet_idx": 26714
+    },
+    {
+      "upper": "直自当时到今日",
+      "lower": "中间歌吹更无声",
+      "title": "题灵岩寺",
+      "author": "白居易",
+      "heat": 241,
+      "score": 12,
+      "couplet_idx": 28415
+    },
+    {
+      "upper": "楼下长江百丈清",
+      "lower": "山头落日半轮明",
+      "title": "越王楼歌",
+      "author": "杜甫",
+      "heat": 238,
+      "score": 12,
+      "couplet_idx": 30408
+    },
+    {
+      "upper": "君王旧迹今人赏",
+      "lower": "转见千秋万古情",
+      "title": "越王楼歌",
+      "author": "杜甫",
+      "heat": 238,
+      "score": 12,
+      "couplet_idx": 30409
+    },
+    {
+      "upper": "谁道三年千里别",
+      "lower": "两心同在道场中",
+      "title": "送李滁州",
+      "author": "白居易",
+      "heat": 238,
+      "score": 12,
+      "couplet_idx": 31769
+    },
+    {
+      "upper": "山城散尽樽前客",
+      "lower": "旧恨新愁只自知",
+      "title": "徐君猷挽词",
+      "author": "苏轼",
+      "heat": 238,
+      "score": 12,
+      "couplet_idx": 32613
+    },
+    {
+      "upper": "汉月还从东海出",
+      "lower": "明妃西嫁无来日",
+      "title": "王昭君二首 一",
+      "author": "李白",
+      "heat": 236,
+      "score": 12,
+      "couplet_idx": 33406
+    },
+    {
+      "upper": "东流江水西飞燕",
+      "lower": "可惜春光不相见",
+      "title": "春日戏题恼郝使君兄",
+      "author": "杜甫",
+      "heat": 234,
+      "score": 12,
+      "couplet_idx": 34767
+    },
+    {
+      "upper": "悠悠一别已三年",
+      "lower": "相望相思明月天",
+      "title": "三年别",
+      "author": "白居易",
+      "heat": 234,
+      "score": 12,
+      "couplet_idx": 35232
+    },
+    {
+      "upper": "水北水南秋月夜",
+      "lower": "管弦声少杵声多",
+      "title": "卧疾",
+      "author": "白居易",
+      "heat": 234,
+      "score": 12,
+      "couplet_idx": 35376
+    },
+    {
+      "upper": "亦应不得多年听",
+      "lower": "未教成时已白头",
+      "title": "伊州",
+      "author": "白居易",
+      "heat": 234,
+      "score": 12,
+      "couplet_idx": 35419
+    },
+    {
+      "upper": "今日不知谁计会",
+      "lower": "春风春水一时来",
+      "title": "府西池",
+      "author": "白居易",
+      "heat": 234,
+      "score": 12,
+      "couplet_idx": 35510
+    },
+    {
+      "upper": "孤负春风杨柳曲",
+      "lower": "去年断酒到今年",
+      "title": "负春",
+      "author": "白居易",
+      "heat": 234,
+      "score": 12,
+      "couplet_idx": 35552
+    },
+    {
+      "upper": "天平山上白云泉",
+      "lower": "云自无心水自闲",
+      "title": "白云泉",
+      "author": "白居易",
+      "heat": 234,
+      "score": 12,
+      "couplet_idx": 35691
+    },
+    {
+      "upper": "去年白帝雪在山",
+      "lower": "今年白帝雪在地",
+      "title": "前苦寒行二首 二",
+      "author": "杜甫",
+      "heat": 233,
+      "score": 12,
+      "couplet_idx": 36874
+    },
+    {
+      "upper": "京路人归天直北",
+      "lower": "江楼客散日平西",
+      "title": "北楼送客归上都",
+      "author": "白居易",
+      "heat": 233,
+      "score": 12,
+      "couplet_idx": 37644
+    },
+    {
+      "upper": "前时谪去三千里",
+      "lower": "此地辞来十四年",
+      "title": "晚春重到集贤院",
+      "author": "白居易",
+      "heat": 233,
+      "score": 12,
+      "couplet_idx": 37729
+    },
+    {
+      "upper": "二月五日花如雪",
+      "lower": "五十二人头似霜",
+      "title": "二月五日花下作",
+      "author": "白居易",
+      "heat": 233,
+      "score": 12,
+      "couplet_idx": 37799
+    },
+    {
+      "upper": "故山西望三千里",
+      "lower": "往事回思二十年",
+      "title": "和宋肇游西池次韵",
+      "author": "苏轼",
+      "heat": 233,
+      "score": 12,
+      "couplet_idx": 39643
+    },
+    {
+      "upper": "散尽黄金犹好客",
+      "lower": "归来碧瓦自生烟",
+      "title": "题沈氏天隠楼",
+      "author": "苏轼",
+      "heat": 233,
+      "score": 12,
+      "couplet_idx": 39907
+    },
+    {
+      "upper": "长风万里送秋雁",
+      "lower": "对此可以酣高楼",
+      "title": "宣州谢朓楼饯别校书叔云",
+      "author": "李白",
+      "heat": 231,
+      "score": 12,
+      "couplet_idx": 40306
+    },
+    {
+      "upper": "只愁离别长如此",
+      "lower": "不道明年花不开",
+      "title": "重题西明寺牡丹",
+      "author": "白居易",
+      "heat": 229,
+      "score": 12,
+      "couplet_idx": 40627
+    },
+    {
+      "upper": "独上荒台东北望",
+      "lower": "日西愁立到黄昏",
+      "title": "寄上大兄",
+      "author": "白居易",
+      "heat": 229,
+      "score": 12,
+      "couplet_idx": 40642
+    },
+    {
+      "upper": "莫问华清今日事",
+      "lower": "满山红叶鏁宫门",
+      "title": "梨园弟子",
+      "author": "白居易",
+      "heat": 229,
+      "score": 12,
+      "couplet_idx": 40733
+    }
+  ]
+}

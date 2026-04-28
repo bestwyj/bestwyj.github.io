@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>飞花令</title>
+  <title>诗苑</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -17,10 +17,40 @@
     h1 {
       text-align: center;
       font-size: 2.2rem;
-      margin-bottom: 24px;
+      margin-bottom: 16px;
       letter-spacing: 4px;
       color: #8b5a2b;
     }
+
+    /* Tab switcher */
+    .tab-bar {
+      display: flex;
+      justify-content: center;
+      gap: 4px;
+      margin-bottom: 24px;
+    }
+    .tab-btn {
+      padding: 8px 28px;
+      border: 1px solid #c9a96e;
+      background: #fff9f0;
+      color: #6b4c2a;
+      font-size: 1.05rem;
+      font-family: inherit;
+      cursor: pointer;
+      border-radius: 8px 8px 0 0;
+      transition: all 0.2s;
+    }
+    .tab-btn.active {
+      background: #8b5a2b;
+      color: #fff;
+      border-color: #8b5a2b;
+    }
+    .tab-btn:not(.active):hover {
+      background: #f0e6d4;
+    }
+
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
 
     .search-form {
       background: #fff9f0;
@@ -232,13 +262,86 @@
       z-index: 999;
     }
     .toast.show { opacity: 1; }
+
+    /* Popular tab */
+    .popular-header {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 16px;
+    }
+    .btn-refresh {
+      padding: 8px 20px;
+      border: 1px solid #c9a96e;
+      background: #fff9f0;
+      color: #6b4c2a;
+      font-size: 1rem;
+      font-family: inherit;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: all 0.2s;
+    }
+    .btn-refresh:hover {
+      background: #8b5a2b;
+      color: #fff;
+      border-color: #8b5a2b;
+    }
+    .popular-columns {
+      display: flex;
+      gap: 16px;
+    }
+    .popular-col {
+      flex: 1;
+    }
+    .popular-col h3 {
+      text-align: center;
+      font-size: 1.1rem;
+      color: #8b5a2b;
+      margin-bottom: 12px;
+      border-bottom: 2px solid #c9a96e;
+      padding-bottom: 6px;
+    }
+    .mini-card {
+      background: #fff9f0;
+      border-left: 3px solid #c9a96e;
+      padding: 10px 12px;
+      margin-bottom: 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+    .mini-card:hover {
+      background: #fff3e0;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+      transform: translateY(-1px);
+    }
+    .mini-title {
+      font-size: 0.85rem;
+      color: #8b7355;
+    }
+    .mini-text {
+      line-height: 1.6;
+      font-size: 1rem;
+      margin-bottom: 4px;
+    }
+    .mini-score {
+      font-size: 0.75rem;
+      color: #c9a96e;
+    }
   </style>
 </head>
 <body>
-  <h1>飞花令</h1>
+  <h1>诗苑</h1>
 
-  <div class="search-form">
-    <h2>诗词查询</h2>
+  <div class="tab-bar">
+    <button class="tab-btn active" data-tab="feihualing">飞花令</button>
+    <button class="tab-btn" data-tab="popular">热门诗句</button>
+  </div>
+
+  <!-- Tab 1: Feihualing (search) -->
+  <div class="tab-content active" id="tab-feihualing">
+    <div class="search-form">
+      <h2>诗词查询</h2>
 
     <!-- Settings: data source + poem type (at the top) -->
     <div class="settings-row">
@@ -278,10 +381,41 @@
   <div id="search-results">
     <div class="status-msg" id="status-msg">正在加载诗词数据...</div>
   </div>
+  </div><!-- end tab-feihualing -->
+
+  <!-- Tab 2: Popular -->
+  <div class="tab-content" id="tab-popular">
+    <div class="popular-header">
+      <button class="btn-refresh" id="btn-refresh">刷新</button>
+    </div>
+    <div class="popular-columns">
+      <div class="popular-col">
+        <h3>五言</h3>
+        <div id="popular-five"></div>
+      </div>
+      <div class="popular-col">
+        <h3>七言</h3>
+        <div id="popular-seven"></div>
+      </div>
+    </div>
+  </div>
 
   <div class="toast" id="toast">已复制到剪贴板</div>
 
   <script>
+    // ========== Tab switching ==========
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        tabBtns.forEach(b => b.classList.remove('active'));
+        tabContents.forEach(c => c.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+      });
+    });
+
+    // ========== Condition row management ==========
     const conditionsEl = document.getElementById('conditions');
     const btnAdd = document.getElementById('btn-add');
     const btnSearch = document.getElementById('btn-search');
@@ -296,7 +430,7 @@
     let currentSource = 'lite';
     const MAX_CONDITIONS = 5;
 
-    // ========== Condition row management ==========
+    // ========== Condition row management (continued) ==========
 
     function getSliderMax() {
       return globalType.value === 'five' ? 10 : 14;
@@ -509,6 +643,85 @@
     }
 
     btnSearch.addEventListener('click', doSearch);
+
+    // ========== Popular poems ==========
+
+    let popularFivePool = [];
+    let popularSevenPool = [];
+    let popularFiveShown = new Set();
+    let popularSevenShown = new Set();
+
+    async function loadPopularData() {
+      try {
+        const resp = await fetch('top100-popular.json');
+        const d = await resp.json();
+        popularFivePool = d.top100_five;
+        popularSevenPool = d.top100_seven;
+        renderPopular();
+      } catch (e) {
+        document.getElementById('popular-five').innerHTML = '<div class="no-result">数据加载失败</div>';
+        document.getElementById('popular-seven').innerHTML = '';
+      }
+    }
+
+    function pickRandom(pool, shown, count) {
+      const available = [];
+      for (let i = 0; i < pool.length; i++) {
+        if (!shown.has(i)) available.push(i);
+      }
+      // If not enough unseen, reset
+      if (available.length < count) {
+        shown.clear();
+        for (let i = 0; i < pool.length; i++) available.push(i);
+      }
+      // Shuffle and pick
+      for (let i = available.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [available[i], available[j]] = [available[j], available[i]];
+      }
+      const picked = available.slice(0, count);
+      picked.forEach(idx => shown.add(idx));
+      return picked.map(idx => pool[idx]);
+    }
+
+    function renderPopular() {
+      const fiveItems = pickRandom(popularFivePool, popularFiveShown, 20);
+      const sevenItems = pickRandom(popularSevenPool, popularSevenShown, 20);
+
+      let fiveHtml = '';
+      for (const item of fiveItems) {
+        fiveHtml += '<div class="mini-card" onclick="copyPlain(this)">' +
+          '<div class="mini-text">' + item.upper + '，' + item.lower + '。</div>' +
+          '<div class="mini-title">—— ' + item.author + '《' + item.title + '》</div>' +
+          '<div class="mini-score">常用字 ' + item.score + ' · 热度 ' + item.heat + '</div>' +
+          '</div>';
+      }
+
+      let sevenHtml = '';
+      for (const item of sevenItems) {
+        sevenHtml += '<div class="mini-card" onclick="copyPlain(this)">' +
+          '<div class="mini-text">' + item.upper + '，' + item.lower + '。</div>' +
+          '<div class="mini-title">—— ' + item.author + '《' + item.title + '》</div>' +
+          '<div class="mini-score">常用字 ' + item.score + ' · 热度 ' + item.heat + '</div>' +
+          '</div>';
+      }
+
+      document.getElementById('popular-five').innerHTML = fiveHtml;
+      document.getElementById('popular-seven').innerHTML = sevenHtml;
+    }
+
+    function copyPlain(el) {
+      const text = el.querySelector('.mini-text').textContent;
+      const title = el.querySelector('.mini-title').textContent;
+      navigator.clipboard.writeText(text + '\n' + title).then(function() {
+        toast.classList.add('show');
+        setTimeout(function() { toast.classList.remove('show'); }, 2000);
+      });
+    }
+
+    document.getElementById('btn-refresh').addEventListener('click', renderPopular);
+
+    loadPopularData();
   </script>
 </body>
 </html>
