@@ -21,37 +21,11 @@
       letter-spacing: 4px;
       color: #8b5a2b;
     }
-    /* Tabs */
-    .tabs {
-      display: flex;
-      gap: 4px;
-      margin-bottom: 20px;
-      border-bottom: 2px solid #c9a96e;
-    }
-    .tab-btn {
-      padding: 10px 20px;
-      border: none;
-      background: transparent;
-      font-family: inherit;
-      font-size: 1.1rem;
-      color: #8b7355;
-      cursor: pointer;
-      border-bottom: 3px solid transparent;
-      transition: all 0.2s;
-    }
-    .tab-btn:hover { color: #6b4c2a; }
-    .tab-btn.active {
-      color: #6b4c2a;
-      border-bottom-color: #c9a96e;
-      font-weight: bold;
-    }
-    .tab-panel { display: none; }
-    .tab-panel.active { display: block; }
 
     /* Search form */
     .search-form {
       background: #fff9f0;
-      padding: 20px;
+      padding: 24px;
       border-radius: 12px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.06);
       margin-bottom: 20px;
@@ -60,32 +34,32 @@
       text-align: center;
       font-size: 1.3rem;
       color: #6b4c2a;
-      margin-bottom: 16px;
+      margin-bottom: 20px;
     }
     .form-row {
       display: flex;
-      gap: 12px;
-      margin-bottom: 12px;
+      gap: 10px;
+      margin-bottom: 14px;
       flex-wrap: wrap;
       align-items: center;
     }
     .form-row label {
-      font-size: 0.95rem;
+      font-size: 1rem;
       color: #6b4c2a;
-      min-width: 60px;
+      white-space: nowrap;
     }
     .form-row input[type="text"] {
       width: 60px;
-      padding: 8px 10px;
+      padding: 10px 10px;
       border: 1px solid #c9a96e;
       border-radius: 6px;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       font-family: inherit;
       background: #fff;
       text-align: center;
     }
     .form-row select {
-      padding: 8px 10px;
+      padding: 10px 10px;
       border: 1px solid #c9a96e;
       border-radius: 6px;
       font-size: 1rem;
@@ -110,7 +84,7 @@
     .btn-search:hover { background: #6b4c2a; }
     .btn-search:disabled { background: #a09080; cursor: not-allowed; }
 
-    /* Position slider */
+    /* Slider */
     .pos-display {
       font-size: 1.1rem;
       font-weight: bold;
@@ -121,10 +95,11 @@
     input[type="range"] {
       flex: 1;
       min-width: 150px;
+      accent-color: #8b5a2b;
     }
 
-    /* Poem cards */
-    .poem-card {
+    /* Results */
+    .result-card {
       background: #fff9f0;
       border-left: 5px solid #c9a96e;
       padding: 16px 20px;
@@ -134,36 +109,35 @@
       transition: all 0.2s ease;
       box-shadow: 0 2px 4px rgba(0,0,0,0.05);
     }
-    .poem-card:hover {
+    .result-card:hover {
       background: #fff3e0;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       transform: translateY(-2px);
     }
-    .poem-title {
+    .result-title {
       font-size: 1.1rem;
       font-weight: bold;
       color: #6b4c2a;
     }
-    .poem-author {
+    .result-author {
       font-size: 0.9rem;
       color: #8b7355;
       margin-bottom: 6px;
     }
-    .poem-text {
-      white-space: pre-line;
-      line-height: 1.7;
-      font-size: 1.05rem;
+    .result-text {
+      line-height: 1.8;
+      font-size: 1.1rem;
     }
-    .poem-text .highlight {
+    .result-text .highlight {
       color: #c0392b;
       font-weight: bold;
     }
-    .tip {
-      text-align: center;
-      margin-top: 20px;
-      color: #aa8e6f;
-      font-size: 0.9rem;
-    }
+
+    .loading { text-align: center; padding: 20px; color: #8b7355; }
+    .result-count { text-align: center; color: #8b7355; font-size: 0.9rem; margin-bottom: 16px; }
+    .no-result { text-align: center; padding: 30px; color: #aa8e6f; font-size: 1.1rem; }
+    .status-msg { text-align: center; padding: 10px; color: #8b7355; font-size: 0.95rem; }
+
     .toast {
       position: fixed;
       bottom: 30px;
@@ -180,215 +154,91 @@
       z-index: 999;
     }
     .toast.show { opacity: 1; }
-
-    /* Loading & results */
-    .loading {
-      text-align: center;
-      padding: 20px;
-      color: #8b7355;
-    }
-    .result-count {
-      text-align: center;
-      color: #8b7355;
-      font-size: 0.9rem;
-      margin-bottom: 16px;
-    }
-    .no-result {
-      text-align: center;
-      padding: 30px;
-      color: #aa8e6f;
-      font-size: 1.1rem;
-    }
-    .status-msg {
-      text-align: center;
-      padding: 10px;
-      color: #8b7355;
-      font-size: 0.95rem;
-    }
   </style>
 </head>
 <body>
-  <h1>诗词小馆</h1>
+  <h1>飞花令</h1>
 
-  <div class="tabs">
-    <button class="tab-btn active" data-tab="collection">诗词收藏</button>
-    <button class="tab-btn" data-tab="search">飞花令</button>
-  </div>
-
-  <!-- Tab: Collection -->
-  <div class="tab-panel active" id="tab-collection">
-    <div id="poem-list"></div>
-    <p class="tip">👇 点一下任意诗词卡片，即可复制全文</p>
-  </div>
-
-  <!-- Tab: Search -->
-  <div class="tab-panel" id="tab-search">
-    <div class="search-form">
-      <h2>飞花令 · 诗词查询</h2>
-      <div class="form-row">
-        <label>搜索字</label>
-        <input type="text" id="search-char" maxlength="1" placeholder="字">
-        <label style="margin-left: 12px">体裁</label>
-        <select id="search-type">
-          <option value="five">五言</option>
-          <option value="seven">七言</option>
-        </select>
-      </div>
-      <div class="form-row">
-        <label>第</label>
-        <input type="range" id="pos-slider" min="1" max="10" value="1">
-        <span class="pos-display" id="pos-display">1</span>
-        <label>个字</label>
-      </div>
-      <button class="btn-search" id="btn-search">查询</button>
+  <div class="search-form">
+    <h2>诗词查询</h2>
+    <div class="form-row">
+      <label>搜索字</label>
+      <input type="text" id="search-char" maxlength="1" placeholder="字">
+      <label style="margin-left:16px">体裁</label>
+      <select id="search-type">
+        <option value="five">五言</option>
+        <option value="seven">七言</option>
+      </select>
     </div>
-
-    <div id="search-results">
-      <div class="status-msg">输入条件后点击查询，检索唐诗宋词库</div>
+    <div class="form-row">
+      <label>第</label>
+      <input type="range" id="pos-slider" min="1" max="10" value="1">
+      <span class="pos-display" id="pos-display">1</span>
+      <label>个字</label>
     </div>
+    <button class="btn-search" id="btn-search">查询</button>
   </div>
 
-  <div class="toast" id="toast">✅ 已复制到剪贴板</div>
+  <div id="search-results">
+    <div class="status-msg" id="status-msg">正在加载诗词数据...</div>
+  </div>
+
+  <div class="toast" id="toast">已复制到剪贴板</div>
 
   <script>
-    // ========== 诗词收藏 ==========
-    const poems = [
-      { title: "静夜思", author: "李白", text: "床前明月光，\n疑是地上霜。\n举头望明月，\n低头思故乡。" },
-      { title: "登鹳雀楼", author: "王之涣", text: "白日依山尽，\n黄河入海流。\n欲穷千里目，\n更上一层楼。" },
-      { title: "春晓", author: "孟浩然", text: "春眠不觉晓，\n处处闻啼鸟。\n夜来风雨声，\n花落知多少。" },
-      { title: "江雪", author: "柳宗元", text: "千山鸟飞绝，\n万径人踪灭。\n孤舟蓑笠翁，\n独钓寒江雪。" },
-      { title: "相思", author: "王维", text: "红豆生南国，\n春来发几枝。\n愿君多采撷，\n此物最相思。" },
-      { title: "咏鹅", author: "骆宾王", text: "鹅鹅鹅，\n曲项向天歌。\n白毛浮绿水，\n红掌拨清波。" },
-      { title: "悯农", author: "李绅", text: "锄禾日当午，\n汗滴禾下土。\n谁知盘中餐，\n粒粒皆辛苦。" },
-      { title: "赋得古原草送别", author: "白居易", text: "离离原上草，\n一岁一枯荣。\n野火烧不尽，\n春风吹又生。" },
-      { title: "望庐山瀑布", author: "李白", text: "日照香炉生紫烟，\n遥看瀑布挂前川。\n飞流直下三千尺，\n疑是银河落九天。" },
-      { title: "早发白帝城", author: "李白", text: "朝辞白帝彩云间，\n千里江陵一日还。\n两岸猿声啼不住，\n轻舟已过万重山。" },
-      { title: "绝句", author: "杜甫", text: "两个黄鹂鸣翠柳，\n一行白鹭上青天。\n窗含西岭千秋雪，\n门泊东吴万里船。" },
-      { title: "枫桥夜泊", author: "张继", text: "月落乌啼霜满天，\n江枫渔火对愁眠。\n姑苏城外寒山寺，\n夜半钟声到客船。" },
-      { title: "出塞", author: "王昌龄", text: "秦时明月汉时关，\n万里长征人未还。\n但使龙城飞将在，\n不教胡马度阴山。" },
-      { title: "凉州词", author: "王翰", text: "葡萄美酒夜光杯，\n欲饮琵琶马上催。\n醉卧沙场君莫笑，\n古来征战几人回？" },
-      { title: "送元二使安西", author: "王维", text: "渭城朝雨浥轻尘，\n客舍青青柳色新。\n劝君更尽一杯酒，\n西出阳关无故人。" },
-      { title: "九月九日忆山东兄弟", author: "王维", text: "独在异乡为异客，\n每逢佳节倍思亲。\n遥知兄弟登高处，\n遍插茱萸少一人。" },
-      { title: "黄鹤楼送孟浩然之广陵", author: "李白", text: "故人西辞黄鹤楼，\n烟花三月下扬州。\n孤帆远影碧空尽，\n唯见长江天际流。" },
-      { title: "江南春", author: "杜牧", text: "千里莺啼绿映红，\n水村山郭酒旗风。\n南朝四百八十寺，\n多少楼台烟雨中。" },
-      { title: "泊秦淮", author: "杜牧", text: "烟笼寒水月笼沙，\n夜泊秦淮近酒家。\n商女不知亡国恨，\n隔江犹唱后庭花。" },
-      { title: "山行", author: "杜牧", text: "远上寒山石径斜，\n白云生处有人家。\n停车坐爱枫林晚，\n霜叶红于二月花。" },
-      { title: "元日", author: "王安石", text: "爆竹声中一岁除，\n春风送暖入屠苏。\n千门万户曈曈日，\n总把新桃换旧符。" },
-      { title: "饮湖上初晴后雨", author: "苏轼", text: "水光潋滟晴方好，\n山色空蒙雨亦奇。\n欲把西湖比西子，\n淡妆浓抹总相宜。" },
-      { title: "题西林壁", author: "苏轼", text: "横看成岭侧成峰，\n远近高低各不同。\n不识庐山真面目，\n只缘身在此山中。" },
-      { title: "夏日绝句", author: "李清照", text: "生当作人杰，\n死亦为鬼雄。\n至今思项羽，\n不肯过江东。" },
-      { title: "示儿", author: "陆游", text: "死去元知万事空，\n但悲不见九州同。\n王师北定中原日，\n家祭无忘告乃翁。" },
-      { title: "竹石", author: "郑燮", text: "咬定青山不放松，\n立根原在破岩中。\n千磨万击还坚劲，\n任尔东西南北风。" },
-      { title: "己亥杂诗", author: "龚自珍", text: "浩荡离愁白日斜，\n吟鞭东指即天涯。\n落红不是无情物，\n化作春泥更护花。" },
-      { title: "金缕衣", author: "佚名", text: "劝君莫惜金缕衣，\n劝君惜取少年时。\n花开堪折直须折，\n莫待无花空折枝。" },
-      { title: "观书有感", author: "朱熹", text: "半亩方塘一鉴开，\n天光云影共徘徊。\n问渠那得清如许？\n为有源头活水来。" },
-      { title: "回乡偶书", author: "贺知章", text: "少小离家老大回，\n乡音无改鬓毛衰。\n儿童相见不相识，\n笑问客从何处来。" }
-    ];
-
-    const listEl = document.getElementById("poem-list");
-    const toast = document.getElementById("toast");
-
-    poems.forEach((poem, index) => {
-      const card = document.createElement("div");
-      card.className = "poem-card";
-      card.innerHTML = `
-        <div class="poem-title">${index + 1}. ${poem.title}</div>
-        <div class="poem-author">—— ${poem.author}</div>
-        <div class="poem-text">${poem.text.replace(/\n/g, "<br>")}</div>
-      `;
-      card.addEventListener("click", () => copyPoem(poem));
-      listEl.appendChild(card);
-    });
-
-    function copyPoem(poem) {
-      const fullText = `《${poem.title}》 ${poem.author}\n${poem.text}`;
-      navigator.clipboard.writeText(fullText).then(() => {
-        toast.classList.add("show");
-        setTimeout(() => toast.classList.remove("show"), 2000);
-      }).catch(() => {
-        const textarea = document.createElement("textarea");
-        textarea.value = fullText;
-        document.body.appendChild(textarea);
-        textarea.select();
-        document.execCommand("copy");
-        document.body.removeChild(textarea);
-        toast.classList.add("show");
-        setTimeout(() => toast.classList.remove("show"), 2000);
-      });
-    }
-
-    // ========== Tab switching ==========
-    document.querySelectorAll('.tab-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-        document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-        btn.classList.add('active');
-        document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
-      });
-    });
-
-    // ========== 飞花令搜索 ==========
     const searchChar = document.getElementById('search-char');
     const searchType = document.getElementById('search-type');
     const posSlider = document.getElementById('pos-slider');
     const posDisplay = document.getElementById('pos-display');
     const btnSearch = document.getElementById('btn-search');
     const searchResults = document.getElementById('search-results');
+    const statusMsg = document.getElementById('status-msg');
+    const toast = document.getElementById('toast');
 
-    let couplets = [];
-    function updateSliderMax() {
-      const type = searchType.value;
-      posSlider.max = type === 'five' ? 10 : 14;
-      if (parseInt(posSlider.value) > parseInt(posSlider.max)) {
-        posSlider.value = posSlider.max;
-      }
-      posDisplay.textContent = posSlider.value;
-    }
-    searchType.addEventListener('change', updateSliderMax);
-    posSlider.addEventListener('input', () => {
-      posDisplay.textContent = posSlider.value;
-    });
-
-    // Fetch and cache poetry data (compact format: {titles, authors, couplets})
     let titles = [];
     let authors = [];
     let couplets = [];
 
-    async function loadData() {
-      if (couplets.length > 0) return;
-      searchResults.innerHTML = '<div class="loading">正在加载诗词数据，请稍候...</div>';
-      btnSearch.disabled = true;
+    // Update slider max when type changes
+    searchType.addEventListener('change', () => {
+      posSlider.max = searchType.value === 'five' ? 10 : 14;
+      if (parseInt(posSlider.value) > parseInt(posSlider.max)) {
+        posSlider.value = posSlider.max;
+      }
+      posDisplay.textContent = posSlider.value;
+    });
+    posSlider.addEventListener('input', () => {
+      posDisplay.textContent = posSlider.value;
+    });
+
+    // Load data on page load
+    (async function loadData() {
       try {
         const resp = await fetch('poetry-data.json');
         const data = await resp.json();
         titles = data.titles;
         authors = data.authors;
-        couplets = data.couplets; // each: [upper, lower, titleIdx, authorIdx]
-        btnSearch.disabled = false;
-        searchResults.innerHTML = '<div class="status-msg">诗词数据已加载 (' + couplets.length + ' 条)，输入条件后点击查询</div>';
+        couplets = data.couplets;
+        statusMsg.textContent = '诗词数据已加载 (' + couplets.length + ' 条)，输入条件后点击查询';
       } catch (e) {
-        btnSearch.disabled = false;
-        searchResults.innerHTML = '<div class="no-result">数据加载失败，请刷新页面重试</div>';
+        statusMsg.textContent = '数据加载失败，请刷新页面重试';
       }
-    }
+    })();
 
-    // Search function
     function doSearch() {
       const char = searchChar.value.trim();
-      if (!char || char.length !== 1) {
+      if (!char) {
         searchResults.innerHTML = '<div class="no-result">请输入一个汉字</div>';
         return;
       }
       if (couplets.length === 0) {
-        searchResults.innerHTML = '<div class="no-result">请先等待数据加载完成</div>';
+        searchResults.innerHTML = '<div class="no-result">数据尚未加载，请刷新页面</div>';
         return;
       }
 
-      const type = searchType.value;
       const pos = parseInt(posSlider.value);
-      const charLen = type === 'five' ? 5 : 7;
+      const charLen = searchType.value === 'five' ? 5 : 7;
 
-      // Filter: combined upper+lower must be charLen*2 chars, find matching position
       const results = [];
       for (const c of couplets) {
         const combined = c[0] + c[1];
@@ -403,65 +253,49 @@
         return;
       }
 
-      // Show count + results
       let html = '<div class="result-count">找到 ' + results.length + ' 条符合条件的诗句</div>';
-
       for (const r of results) {
-        const uHtml = highlightAt(r[0], pos, charLen);
-        const lHtml = highlightAt(r[1], pos, charLen);
         const title = titles[r[2]];
         const author = authors[r[3]];
-
-        const escTitle = JSON.stringify(title);
-        const escAuthor = JSON.stringify(author);
-        html += `<div class="poem-card" onclick="copyCouplet(this, ${escTitle}, ${escAuthor})">
-          <div class="poem-title">${title}</div>
-          <div class="poem-author">—— ${author}</div>
-          <div class="poem-text">${uHtml}，${lHtml}。</div>
-        </div>`;
+        const uHtml = highlightHalf(r[0], pos, charLen, true);
+        const lHtml = highlightHalf(r[1], pos, charLen, false);
+        html += '<div class="result-card" onclick="copyResult(this,' + JSON.stringify(title) + ',' + JSON.stringify(author) + ')">' +
+          '<div class="result-title">' + title + '</div>' +
+          '<div class="result-author">—— ' + author + '</div>' +
+          '<div class="result-text">' + uHtml + '，' + lHtml + '。</div>' +
+          '</div>';
       }
-
       searchResults.innerHTML = html;
     }
 
-    function highlightAt(text, pos, charLen) {
-      // pos is 1-indexed relative to combined (upper+lower)
-      // For upper half: pos 1..charLen -> index in upper
-      if (pos >= 1 && pos <= charLen) {
-        const idx = pos - 1;
-        return text.substring(0, idx) + '<span class="highlight">' + text[idx] + '</span>' + text.substring(idx + 1);
-      } else {
-        // In lower half
-        const idx = pos - charLen - 1;
-        if (idx >= 0 && idx < text.length) {
+    function highlightHalf(text, pos, charLen, isUpper) {
+      if (isUpper) {
+        // pos 1..charLen means highlight is in this half
+        if (pos >= 1 && pos <= charLen) {
+          const idx = pos - 1;
           return text.substring(0, idx) + '<span class="highlight">' + text[idx] + '</span>' + text.substring(idx + 1);
         }
-        return text;
+      } else {
+        // pos charLen+1..charLen*2 means highlight is in this half
+        if (pos > charLen && pos <= charLen * 2) {
+          const idx = pos - charLen - 1;
+          return text.substring(0, idx) + '<span class="highlight">' + text[idx] + '</span>' + text.substring(idx + 1);
+        }
       }
+      return text;
     }
 
-    function copyCouplet(el, title, author) {
-      const text = el.querySelector('.poem-text').textContent;
-      navigator.clipboard.writeText(`《${title}》 ${author}\n${text}`).then(() => {
-        toast.classList.add("show");
-        setTimeout(() => toast.classList.remove("show"), 2000);
+    function copyResult(el, title, author) {
+      const text = el.querySelector('.result-text').textContent;
+      navigator.clipboard.writeText('《' + title + '》 ' + author + '\n' + text).then(function() {
+        toast.classList.add('show');
+        setTimeout(function() { toast.classList.remove('show'); }, 2000);
       });
     }
 
     btnSearch.addEventListener('click', doSearch);
-    searchChar.addEventListener('keypress', e => {
+    searchChar.addEventListener('keypress', function(e) {
       if (e.key === 'Enter') doSearch();
-    });
-
-    // Preload data when search tab is first opened
-    let dataLoading = false;
-    document.querySelectorAll('.tab-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        if (btn.dataset.tab === 'search' && !dataLoading) {
-          dataLoading = true;
-          loadData();
-        }
-      });
     });
   </script>
 </body>
