@@ -641,7 +641,7 @@
 
     function copyResult(el, title, author) {
       const text = el.querySelector('.result-text').textContent;
-      navigator.clipboard.writeText('《' + title + '》 ' + author + '\n' + text).then(function() {
+      navigator.clipboard.writeText(text).then(function() {
         toast.classList.add('show');
         setTimeout(function() { toast.classList.remove('show'); }, 2000);
       });
@@ -674,12 +674,10 @@
       for (let i = 0; i < pool.length; i++) {
         if (!shown.has(i)) available.push(i);
       }
-      // If not enough unseen, reset
       if (available.length < count) {
         shown.clear();
         for (let i = 0; i < pool.length; i++) available.push(i);
       }
-      // Shuffle and pick
       for (let i = available.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [available[i], available[j]] = [available[j], available[i]];
@@ -708,34 +706,34 @@
       const sevenItems = pickRandom(popularSevenPool, popularSevenShown, 20);
 
       let fiveHtml = '';
-      // Featured 5-char poems (always on top)
       for (const f of featuredFive) {
-        fiveHtml += '<div class="mini-card featured" onclick="copyPlain(this)">' +
-          '<div class="mini-text">' + f.upper + '，' + f.lower + '。</div>' +
+        const text = f.upper + '，' + f.lower + '。';
+        fiveHtml += '<div class="mini-card featured" onclick="copyPlain(\'' + text.replace(/'/g, "\\'") + '\')">' +
+          '<div class="mini-text">' + text + '</div>' +
           '<div class="mini-title">—— ' + f.author + '《' + f.title + '》</div>' +
           '</div>';
       }
       for (const item of fiveItems) {
-        fiveHtml += '<div class="mini-card" onclick="copyPlain(this)">' +
-          '<div class="mini-text">' + item.upper + '，' + item.lower + '。</div>' +
+        const text = item.upper + '，' + item.lower + '。';
+        fiveHtml += '<div class="mini-card" onclick="copyPlain(\'' + text.replace(/'/g, "\\'") + '\')">' +
+          '<div class="mini-text">' + text + '</div>' +
           '<div class="mini-title">—— ' + item.author + '《' + item.title + '》</div>' +
-          '<div class="mini-score">常用字 ' + item.score + ' · 热度 ' + item.heat + '</div>' +
           '</div>';
       }
 
       let sevenHtml = '';
-      // Featured 7-char poems (always on top)
       for (const f of featuredSeven) {
-        sevenHtml += '<div class="mini-card featured" onclick="copyPlain(this)">' +
-          '<div class="mini-text">' + f.upper + '，' + f.lower + '。</div>' +
+        const text = f.upper + '，' + f.lower + '。';
+        sevenHtml += '<div class="mini-card featured" onclick="copyPlain(\'' + text.replace(/'/g, "\\'") + '\')">' +
+          '<div class="mini-text">' + text + '</div>' +
           '<div class="mini-title">—— ' + f.author + '《' + f.title + '》</div>' +
           '</div>';
       }
       for (const item of sevenItems) {
-        sevenHtml += '<div class="mini-card" onclick="copyPlain(this)">' +
-          '<div class="mini-text">' + item.upper + '，' + item.lower + '。</div>' +
+        const text = item.upper + '，' + item.lower + '。';
+        sevenHtml += '<div class="mini-card" onclick="copyPlain(\'' + text.replace(/'/g, "\\'") + '\')">' +
+          '<div class="mini-text">' + text + '</div>' +
           '<div class="mini-title">—— ' + item.author + '《' + item.title + '》</div>' +
-          '<div class="mini-score">常用字 ' + item.score + ' · 热度 ' + item.heat + '</div>' +
           '</div>';
       }
 
@@ -743,10 +741,8 @@
       document.getElementById('popular-seven').innerHTML = sevenHtml;
     }
 
-    function copyPlain(el) {
-      const text = el.querySelector('.mini-text').textContent;
-      const title = el.querySelector('.mini-title').textContent;
-      navigator.clipboard.writeText(text + '\n' + title).then(function() {
+    function copyPlain(text) {
+      navigator.clipboard.writeText(text).then(function() {
         toast.classList.add('show');
         setTimeout(function() { toast.classList.remove('show'); }, 2000);
       });
