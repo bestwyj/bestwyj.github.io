@@ -5,7 +5,7 @@
 
 本项目主要是为了”诗苑”服务，快速查询定位特定位置是某个字的诗句，并支持多个条件联合查询。
 
-[诗苑](https://xiaoce.fun/xunhualing)
+[小测验：寻花令](https://xiaoce.fun/xunhualing)
 
 目前已实现的功能：
 
