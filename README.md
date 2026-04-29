@@ -1,6 +1,6 @@
 # 诗苑：一个古诗文数据库查询应用
 
-[简体唐诗宋词开源库](https://github.com/chinese-poetry/chinese-poetry-zhCN)
+[简体唐诗开源库](https://github.com/chinese-poetry/chinese-poetry-zhCN)
 
 本项目主要是为了“寻花令”服务，快速查询定位特定位置是某个字的诗句，并支持多个条件联合查询。
 
